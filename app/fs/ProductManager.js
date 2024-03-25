@@ -70,7 +70,7 @@ class ProductManager {
             throw new Error("no se encontro el id");
          } else {
             console.log(one);
-            console.log("Se ha leido el producto"+ id);
+            console.log("Se ha leido el producto"+ pid);
             return one;
          }
       } catch (error) {
