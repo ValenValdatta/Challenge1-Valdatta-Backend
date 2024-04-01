@@ -101,25 +101,25 @@ async function crearUsuario() {
          photo: "foto",
          email: "admin@gmail.com",
          password: "admin123",
-         role: "admin",
+         role: "0",
       });
       await user.create({
          photo: "foto",
          email: "user1@gmail.com",
          password: "user1!",
-         role: "user",
+         role: "0",
       });
       await user.create({
          photo: "foto",
          email: "user2@gmail.com",
          password: "user2!",
-         role: "user",
+         role: "0",
       });
       await user.create({
          photo: "foto",
          email: "user3@gmail.com",
          password: "user3!",
-         role: "user",
+         role: "0",
       });
       await user.read();
       // await user.readOne("c8e1de61c5cc8eeabcf59fa0");

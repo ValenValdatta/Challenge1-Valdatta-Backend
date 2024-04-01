@@ -28,7 +28,7 @@ server.get("/", async(requirements , response)=> {
         })
     } catch (error) {
         console.log(error);
-        return response.status(500).json({
+        return res.status(500).json({
             response: "CODER API ERROR",
             success: false,
         })
@@ -37,7 +37,7 @@ server.get("/", async(requirements , response)=> {
 
 
 
-server.get("/app/products", async (req, res)=> {
+server.get("/api/products", async (req, res)=> {
     try {
         const { category } = req.query
         const all = await productManager.read(category)
@@ -65,7 +65,7 @@ server.get("/app/products", async (req, res)=> {
 
 // get con un parametro 
 
-server.get("/app/products/:pid", async(req, res)=>{
+server.get("/api/products/:pid", async(req, res)=>{
     try {
         const { pid } = req.params
         const one = await productManager.readOne(pid)
@@ -92,7 +92,7 @@ server.get("/app/products/:pid", async(req, res)=>{
 
 //get con dos parametros
 
-server.get("/app/products/:title/:category", async (req, res)=>{
+server.get("/api/products/:title/:category", async (req, res)=>{
     try {
         const {title, category} = req.params
         const data = { title, category }
@@ -113,7 +113,7 @@ server.get("/app/products/:title/:category", async (req, res)=>{
 
 // PETICIONES DE USERS
 
-server.get("/app/users", async (req, res)=> {
+server.get("/api/users", async (req, res)=> {
     try {
         const { role } = req.query
         const all = await userManager.read(role)
@@ -140,7 +140,7 @@ server.get("/app/users", async (req, res)=> {
 
  
 
-server.get("/app/users/:uid", async(req, res)=>{
+server.get("/api/users/:uid", async(req, res)=>{
     try {
         const { uid } = req.params
         const one = await userManager.readOne(uid)
