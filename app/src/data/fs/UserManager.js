@@ -3,7 +3,7 @@ import crypto from "crypto";
 
 class UserManager {
    constructor() {
-      this.path = "./fs/files/users.json";
+      this.path = "./src/data/fs/files/users.json";
       this.init();
    }
    init() {
@@ -69,6 +69,26 @@ class UserManager {
          } else {
             console.log(one);
             return one;
+         }
+      } catch (error) {
+         throw error;
+      }
+   }
+   async update(id, data) {
+      try {
+         let all = await this.read();
+         let one = all.find((each) => each.id === id);
+         if (one) {
+            for (let prop in data) {
+               one[prop] = data[prop];
+            }
+            all = JSON.stringify(all, null, 2);
+            await fs.promises.writeFile(this.path, all);
+            return one;
+         }else {
+            const error = new Error("Not Found")
+            error.statusCode = 404
+            throw error
          }
       } catch (error) {
          throw error;

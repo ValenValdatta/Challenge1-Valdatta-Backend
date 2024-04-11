@@ -1,6 +1,10 @@
 import express from "express"  //IMPORTO EL MODULO DE EXPRESS
-import productManager from "./fs/ProductManager.js";
-import userManager from "./fs/UserManager.js";
+import productManager from "./src/data/fs/ProductManager.js";
+import userManager from "./src/data/fs/UserManager.js";
+import indexRouter from "./src/Router/index.router.js";
+import errorHandler from "./src/middlewares/errorHandler.js";
+import pathHandler from "./src/middlewares/pathHandler.js";
+import morgan from "morgan";
 
 const server = express()
 //CREO EL SERVIDOR 
@@ -14,7 +18,9 @@ server.listen(port, ready)
 
 
 //MIDDLEWARES
-server.use(express.urlencoded({ extended: true }))  
+server.use(express.urlencoded({ extended: true })) 
+server.use(express.json())
+server.use(morgan("dev")) 
 //OBLIGO a mi servidor que use la funcion de leer parametros/consultas (req.params/req.querys) 
 
 
@@ -37,57 +43,7 @@ server.get("/", async(requirements , response)=> {
 
 
 
-server.get("/api/products", async (req, res)=> {
-    try {
-        const { category } = req.query
-        const all = await productManager.read(category)
-        if(all.length !== 0) {
-            return res.status(200).json({
-                response: all,
-                category,
-                success: true,
-            })
-        } else {
-            const error = new Error ("NOT FOUND")
-            error.statusCode = 404
-            throw error
-        }
-    } catch (error) {
-        console.log(error);
-        return res.status(error.statusCode).json({
-            response: error.message,
-            success: false,
-            message: "No se encontraron productos de esa categoria",
-        })
-    }
-})
 
-
-// get con un parametro 
-
-server.get("/api/products/:pid", async(req, res)=>{
-    try {
-        const { pid } = req.params
-        const one = await productManager.readOne(pid)
-        if(one){
-            return res.status(200).json({
-                response: one,
-                success: true
-            })
-        } else {
-            const error = new Error ("NOT FOUND")
-            error.statusCode = 404
-            throw error 
-        }
-    } catch (error) {
-        console.log(error);
-        return res.status(error.statusCode).json({
-            response: error.message,
-            success: false,
-            message: "No se encontraron productos con ese ID"
-        })
-    }
-})
 
 
 //get con dos parametros
@@ -163,3 +119,9 @@ server.get("/api/users/:uid", async(req, res)=>{
         })
     }
 })
+
+
+
+server.use("/", indexRouter)
+server.use(errorHandler)
+server.use(pathHandler)
