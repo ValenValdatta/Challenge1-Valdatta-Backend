@@ -1,10 +1,16 @@
 import express from "express"  //IMPORTO EL MODULO DE EXPRESS
+import { createServer } from "http";
+import { Server } from "socket.io";
+import morgan from "morgan";
+import { engine } from "express-handlebars"
+
 import productManager from "./src/data/fs/ProductManager.js";
 import userManager from "./src/data/fs/UserManager.js";
 import indexRouter from "./src/Router/index.router.js";
 import errorHandler from "./src/middlewares/errorHandler.js";
 import pathHandler from "./src/middlewares/pathHandler.js";
-import morgan from "morgan";
+import __dirname from "./utils.js";
+import socketCb from "./src/Router/index.socket.js"
 
 const server = express()
 //CREO EL SERVIDOR 
@@ -12,9 +18,18 @@ const port = 8080
 //DEFINO EL PUERTO A DONDE SE VA A LEVANTAR EL SERVIDOR
 
 const ready = () => console.log("server ready on port" + port);
+const nodeServer = createServer(server)
+//creo un servidor de node con el metodo nativo createServer, con las configuraciones del servidor de express
+const socketServer = new Server(nodeServer)
+//creo un servidor de TCP, construyendo una instancia del servidor de socket, pasando como base el servidor de node (TCP esta basado en HTTP)
+socketServer.on("connection", socketCb)
+nodeServer.listen(port, ready) 
 
-server.listen(port, ready) 
-//SE LEVANTA EL SERVIDOR   
+
+//HANDLEBARS
+server.engine("handlebars", engine())
+server.set("view engine", "handlebars")
+server.set("views", __dirname+"/src/views")
 
 
 //MIDDLEWARES

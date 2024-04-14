@@ -1,30 +1,41 @@
 [
   {
     "id": "086e737d45cdd97829be960a",
-    "photo": "foto",
+    "photo": "https://cdn-icons-png.flaticon.com/512/149/149071.png",
     "email": "admin@gmail.com",
     "password": "admin123",
     "role": "0"
   },
   {
     "id": "62bde6eab068e93e30ae7a40",
-    "photo": "foto",
+    "photo": "https://cdn-icons-png.flaticon.com/512/149/149071.png",
     "email": "user1@gmail.com",
     "password": "user1!",
     "role": "0"
   },
   {
     "id": "42bc8a5c391c46ae0ac7ab63",
-    "photo": "foto",
+    "photo": "https://cdn-icons-png.flaticon.com/512/149/149071.png",
     "email": "user2@gmail.com",
     "password": "user2!",
     "role": "0"
   },
   {
     "id": "bc2ed397a11b199503a636c9",
-    "photo": "foto",
+    "photo": "https://cdn-icons-png.flaticon.com/512/149/149071.png",
     "email": "user3@gmail.com",
     "password": "user3!",
     "role": "0"
+  },
+  {
+    "id": "cf2bd02ca8ff679a64dd99a4",
+    "email": "valentin.valdatta.94@gmail.com",
+    "password": "123"
+  },
+  {
+    "id": "5b289613c92505a258156ff4",
+    "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-N-mu0roKlqIc1NpONE3uvyEPpHcz-x94XfVZ4cSn4g&s",
+    "email": "elbicho@gmail.com",
+    "password": "elbicho"
   }
 ]

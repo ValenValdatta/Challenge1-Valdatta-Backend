@@ -1,0 +1,36 @@
+<h1 class="bg-primary-subtle p-2 text-center text-primary">CODER HANDLEBARS</h1>
+<section class="d-flex">
+    <article id="" class="d-flex flex-column align-items-center w-50">
+        <h1 class="text-center">REGISTER FORM!</h1>
+        <form class="d-flex flex-column w-50">
+            <input class="m-2" type="email" name="email" id="email" placeholder="email">
+            <input class="m-2" type="password" name="passwornd" id="password" placeholder="password">
+            <input class="m-2" type="text" name="photo" id="photo" placeholder="photo">
+            <input class="m-2" type="button" id="register" value="Register">
+        </form>
+    </article>
+    <article id="users" class="d-flex flex-wrap w-50"></article>
+</section>
+<script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+<script>
+  const socket = io();
+  socket.on("users", data =>{
+    console.log(data)
+    let template = ``
+    template = data.map(each => `
+    <div class="card m-2" style="width: 12rem;">
+        <img style="height: 10rem" src="${each.photo}" class="card-img-top obj-fit-contain" alt="...">
+        <div class="card-body">
+            <p class="card-title">${each.email}</p>
+        </div>
+    </div>`
+)
+    document.querySelector("#users").innerHTML = template
+    })
+    document.querySelector("#register").addEventListener("click", (event) =>{
+        const email = document.querySelector("#email").value
+        const password = document.querySelector("#password").value
+        const photo = document.querySelector("#photo").value
+        socket.emit("register", {email, password, photo})
+    } )
+</script>

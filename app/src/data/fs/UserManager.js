@@ -118,25 +118,25 @@ async function crearUsuario() {
    try {
       const user = new UserManager();
       await user.create({
-         photo: "foto",
+         photo: "https://cdn-icons-png.flaticon.com/512/149/149071.png",
          email: "admin@gmail.com",
          password: "admin123",
          role: "0",
       });
       await user.create({
-         photo: "foto",
+         photo: "https://cdn-icons-png.flaticon.com/512/149/149071.png",
          email: "user1@gmail.com",
          password: "user1!",
          role: "0",
       });
       await user.create({
-         photo: "foto",
+         photo: "https://cdn-icons-png.flaticon.com/512/149/149071.png",
          email: "user2@gmail.com",
          password: "user2!",
          role: "0",
       });
       await user.create({
-         photo: "foto",
+         photo: "https://cdn-icons-png.flaticon.com/512/149/149071.png",
          email: "user3@gmail.com",
          password: "user3!",
          role: "0",
