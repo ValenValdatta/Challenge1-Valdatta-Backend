@@ -24,7 +24,7 @@ class UserManager {
          } else {
             const user = {
                id: crypto.randomBytes(12).toString("hex"),
-               photo: data.photo,
+               photo: data.photo || "https://img.freepik.com/vector-premium/icono-circulo-usuario-anonimo-ilustracion-vector-estilo-plano-sombra_520826-1931.jpg",
                email: data.email,
                password: data.password,
                role: data.role,

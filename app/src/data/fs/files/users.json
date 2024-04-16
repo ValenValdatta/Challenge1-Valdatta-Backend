@@ -28,14 +28,15 @@
     "role": "0"
   },
   {
-    "id": "cf2bd02ca8ff679a64dd99a4",
-    "email": "valentin.valdatta.94@gmail.com",
-    "password": "123"
-  },
-  {
     "id": "5b289613c92505a258156ff4",
     "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-N-mu0roKlqIc1NpONE3uvyEPpHcz-x94XfVZ4cSn4g&s",
     "email": "elbicho@gmail.com",
     "password": "elbicho"
+  },
+  {
+    "id": "e0f5a7753de1c2bb743e3428",
+    "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0cQNVR8Dhjy6FgsxrizQ9PqPyTbGpmPYHLv2O7R9AFQ&s",
+    "email": "Messi@thegoat.com",
+    "password": "GOAT"
   }
 ]

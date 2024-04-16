@@ -35,6 +35,7 @@ server.set("views", __dirname+"/src/views")
 //MIDDLEWARES
 server.use(express.urlencoded({ extended: true })) 
 server.use(express.json())
+server.use(express.static(__dirname + "/public"))
 server.use(morgan("dev")) 
 //OBLIGO a mi servidor que use la funcion de leer parametros/consultas (req.params/req.querys) 
 
@@ -55,10 +56,6 @@ server.get("/", async(requirements , response)=> {
         })
     }
 })
-
-
-
-
 
 
 //get con dos parametros

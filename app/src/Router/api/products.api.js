@@ -1,11 +1,12 @@
 import { Router } from "express";
 import productManager from "../../data/fs/ProductManager.js";
+import isText from "../../middlewares/isText.mid.js";
 
 const productsRouter = Router();
 
 productsRouter.get("/", read)
 productsRouter.get("/:pid", readOne)
-productsRouter.post("/", create);
+productsRouter.post("/", isText, create);
 productsRouter.put("/:pid", update);
 productsRouter.delete("/:pid", destroy);
 
