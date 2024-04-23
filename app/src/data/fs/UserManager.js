@@ -52,7 +52,7 @@ class UserManager {
             all = all.filter(each => each.role === role)
             return all
          } else {
-            console.log(all);
+            // console.log(all);
             return all
          }        
       } catch (error) {
@@ -67,7 +67,7 @@ class UserManager {
          if (!one) {
             throw new Error("no se encontro el id");
          } else {
-            console.log(one);
+            // console.log(one);
             return one;
          }
       } catch (error) {

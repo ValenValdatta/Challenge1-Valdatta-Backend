@@ -17,5 +17,12 @@ viewsRouter.get("/home", async (req, res, next)=>{
         return next(error)
     }
 })
+viewsRouter.get("/chat", async(req, res, next) => {
+    try {
+        return res.render("chat", {title: "CHAT"})
+    } catch (error) {
+        return next(error)
+    }
+})
 
 export default viewsRouter

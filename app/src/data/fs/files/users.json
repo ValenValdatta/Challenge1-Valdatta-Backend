@@ -38,5 +38,17 @@
     "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0cQNVR8Dhjy6FgsxrizQ9PqPyTbGpmPYHLv2O7R9AFQ&s",
     "email": "Messi@thegoat.com",
     "password": "GOAT"
+  },
+  {
+    "id": "109cc774cc39ef8e8fac2904",
+    "photo": "https://img.freepik.com/vector-premium/icono-circulo-usuario-anonimo-ilustracion-vector-estilo-plano-sombra_520826-1931.jpg",
+    "email": "valen@gmail.com",
+    "role": "admin"
+  },
+  {
+    "id": "96e5ac70526b65bf4339786a",
+    "photo": "https://img.freepik.com/vector-premium/icono-circulo-usuario-anonimo-ilustracion-vector-estilo-plano-sombra_520826-1931.jpg",
+    "email": "valen@gmail.com",
+    "role": "admin"
   }
 ]

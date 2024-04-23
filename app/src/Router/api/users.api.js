@@ -1,5 +1,6 @@
 import { Router } from "express";
-import userManager from "../../data/fs/UserManager.js";
+// import userManager from "../../data/fs/UserManager.js";
+import usersManager from "../../data/mongo/UsersManager.mongo.js";
 import uploader from "../../middlewares/multer.mid.js";
 import isPhoto from "../../middlewares/isPhoto.js";
 
@@ -14,8 +15,8 @@ usersRouter.delete("/:uid", destroy);
 
 async function read (req, res, next) {
     try {
-       const { role } = req.query;
-       const all = await userManager.read(role);
+       const { email } = req.query;
+       const all = await usersManager.read(email);
        if (all.length > 0) {
           return res.json ({
             statusCode: 200,
@@ -34,7 +35,7 @@ async function read (req, res, next) {
 async function readOne (req, res, next) {
     try {
        const { uid } = req.params;
-       const one = await userManager.readOne(uid);
+       const one = await usersManager.readOne(uid);
        if (one) {
           return res.status(200).json({
              response: one,
@@ -53,10 +54,10 @@ async function readOne (req, res, next) {
 async function create(req, res, next) {
    try {
       const data = req.body;
-      const one = await userManager.create(data);
+      const one = await usersManager.create(data);
       return res.json({
          statusCode: 201,
-         message: "CREATED ID: " + one.id,
+         message: "CREATED USER: " + one.id,
       });
    } catch (error) {
     return next(error)
@@ -67,10 +68,10 @@ async function update(req, res, next) {
    try {
       const { uid } = req.params;
       const data = req.body;
-      const one = await userManager.update(uid, data);
+      const one = await usersManager.update(uid, data);
       return res.json({
          statusCode: 200,
-         message: "PRODUCT UPDATED: " + one.id,
+         message: "USER UPDATED: " + one.id,
          response: one,
       });
    } catch (error) {
@@ -81,7 +82,7 @@ async function update(req, res, next) {
 async function destroy(req, res, next) {
    try {
       const { uid } = req.params;
-      const one = await userManager.destroy(uid);
+      const one = await usersManager.destroy(uid);
       return res.json({
          statusCode: 200,
          response: one,

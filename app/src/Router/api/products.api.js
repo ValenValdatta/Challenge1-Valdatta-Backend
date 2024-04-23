@@ -1,5 +1,6 @@
 import { Router } from "express";
-import productManager from "../../data/fs/ProductManager.js";
+// import productManager from "../../data/fs/productManager.js";
+import productsManager from "../../data/mongo/ProductsManager.mongo.js";
 import isText from "../../middlewares/isText.mid.js";
 
 const productsRouter = Router();
@@ -14,7 +15,7 @@ productsRouter.delete("/:pid", destroy);
 async function read (req, res, next) {
     try {
        const { category } = req.query;
-       const all = await productManager.read(category);
+       const all = await productsManager.read(category);
        if (all.length > 0) {
           return res.json ({
             statusCode: 200,
@@ -33,7 +34,7 @@ async function read (req, res, next) {
 async function readOne (req, res, next) {
     try {
        const { pid } = req.params;
-       const one = await productManager.readOne(pid);
+       const one = await productsManager.readOne(pid);
        if (one) {
           return res.status(200).json({
              response: one,
@@ -52,10 +53,10 @@ async function readOne (req, res, next) {
 async function create(req, res, next) {
    try {
       const data = req.body;
-      const one = await productManager.create(data);
+      const one = await productsManager.create(data);
       return res.json({
          statusCode: 201,
-         message: "CREATED ID: " + one.id,
+         message: "CREATED PRODUCT: " + one.id,
       });
    } catch (error) {
     return next(error)
@@ -66,7 +67,7 @@ async function update(req, res, next) {
    try {
       const { pid } = req.params;
       const data = req.body;
-      const one = await productManager.update(pid, data);
+      const one = await productsManager.update(pid, data);
       return res.json({
          statusCode: 200,
          message: "PRODUCT UPDATED: " + one.id,
@@ -80,7 +81,7 @@ async function update(req, res, next) {
 async function destroy(req, res, next) {
    try {
       const { pid } = req.params;
-      const one = await productManager.destroy(pid);
+      const one = await productsManager.destroy(pid);
       return res.json({
          statusCode: 200,
          response: one,
