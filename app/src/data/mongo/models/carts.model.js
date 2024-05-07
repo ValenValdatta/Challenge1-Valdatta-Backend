@@ -4,7 +4,7 @@ const collection = "carts";
 const schema = new Schema(
    {
       user_id: { type: Types.ObjectId , ref: "users", required: true },
-      clothe_id: { type: Types.ObjectId , ref: "clothes", required: true },
+      product_id: { type: Types.ObjectId , ref: "products", required: true },
       quantity: { type: Number, required: true },
       state: {
          type: String,
@@ -21,7 +21,7 @@ schema.pre("find", function () {
    this.populate("user_id", "email role");
 });
 schema.pre("find", function () {
-   this.populate("clothe_id");
+   this.populate("product_id", "title category");
 });
 
 const Cart = model(collection, schema);

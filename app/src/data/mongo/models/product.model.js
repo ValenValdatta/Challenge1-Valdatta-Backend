@@ -1,4 +1,5 @@
 import { Schema, Types, model } from "mongoose";
+import mongoosePaginate from "mongoose-paginate-v2"
 
 const collection = "products";
 
@@ -16,8 +17,10 @@ const schema = new Schema(
    }
 );
 
+schema.plugin(mongoosePaginate);
+
 schema.pre("find", function () { 
-   this.populate("user_id", "email photo -_id"); 
+   this.populate("user_id", "email photo -_id");
 })
 schema.pre("findOne", function () { 
    this.populate("user_id", "email");

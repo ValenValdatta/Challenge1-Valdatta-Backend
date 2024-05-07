@@ -5,6 +5,7 @@ import cartsRouter from "./carts.api.js";
 import categoryRouter from "./category.api.js";
 import sizesRouter from "./size.api.js";
 import clotheRouter from "./clothe.api.js";
+import ticketRouter from "./tickets.api.js";
 
 const apiRouter = Router()
 
@@ -14,6 +15,6 @@ apiRouter.use("/carts", cartsRouter)
 apiRouter.use("/categories", categoryRouter)
 apiRouter.use("/sizes", sizesRouter)
 apiRouter.use("/clothes", clotheRouter)
-
+apiRouter.use("/tickets", ticketRouter)
 
 export default apiRouter
