@@ -7,7 +7,7 @@ import isPhoto from "../../middlewares/isPhoto.js";
 const usersRouter = Router()
 
 usersRouter.get("/", read)
-usersRouter.get("/:uid", readOne)
+usersRouter.get("/:email", readByEmail)
 usersRouter.post("/", uploader.single("photo"), isPhoto, create);
 usersRouter.put("/:uid", update);
 usersRouter.delete("/:uid", destroy);
@@ -32,12 +32,17 @@ async function read (req, res, next) {
     }
  }
 
-async function readOne (req, res, next) {
+async function readByEmail (req, res, next) {
     try {
-       const { uid } = req.params;
-       const one = await usersManager.readOne(uid);
+       const { email } = req.params;
+       let one = undefined
+
+       if(email) {
+         one = await usersManager.readByEmail(email)
+       }
        if (one) {
-          return res.status(200).json({
+          return res.json({
+             statusCode: 200,
              response: one,
              success: true,
           });

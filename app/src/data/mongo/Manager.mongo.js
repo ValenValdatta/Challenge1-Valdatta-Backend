@@ -12,9 +12,9 @@ class Manager {
           throw error;
        }
     }
-    async read(email) {
+    async read(filter) {
        try {
-          const all = await this.Model.find(email);
+          const all = await this.Model.find(filter)//.populate("user_id", "-_id email photo");
           return all;
        } catch (error) {
           throw error;
@@ -28,6 +28,14 @@ class Manager {
           throw error;
        }
     }
+    async readByEmail(email) {
+      try {
+         const one = await this.Model.findOne({ email });
+         return one;
+      } catch (error) {
+         throw error;
+      }
+   }
     async update(id, data) {
        try {
           const one = this.Model.findOneAndUpdate(id, data, { new: true });
