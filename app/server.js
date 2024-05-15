@@ -4,6 +4,9 @@ import { createServer } from "http";
 import { Server } from "socket.io";
 import morgan from "morgan";
 import { engine } from "express-handlebars";
+import cookieParser from "cookie-parser";
+import session from "express-session";
+import MongoStore from "connect-mongo";
 
 import productManager from "./src/data/fs/ProductManager.js";
 import userManager from "./src/data/fs/UserManager.js";
@@ -37,6 +40,16 @@ server.set("view engine", "handlebars");
 server.set("views", __dirname + "/src/views");
 
 //MIDDLEWARES
+server.use(
+   session({
+      store: new MongoStore({ mongoUrl: process.env.MONGO_URI, ttl: 60 * 60 }),
+      secret: process.env.SECRET_SESSION,
+      resave: true,
+      saveUninitialized: true,
+      cookie: { maxAge: 60 * 60 * 1000 },
+   })
+);
+server.use(cookieParser(process.env.SECRET));
 server.use(express.urlencoded({ extended: true }));
 server.use(express.json());
 server.use(express.static(__dirname + "/public"));
@@ -81,7 +94,6 @@ server.get("/api/products/:title/:category", async (req, res) => {
 });
 
 // PETICIONES DE USERS
-
 
 server.get("/api/users/:uid", async (req, res) => {
    try {

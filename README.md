@@ -1,10 +1,6 @@
-Hola Nao como estas, le fui haciendo unos commits luego de la entrega a pq estaba incompleto.
+Hola Nao como estas, aca te dejo la entrega de cookies y sessions, le faltan un par de detalles pero ya casi esta.
 
-Creo que me esta funcionando todo menos el PAGINATE y READONE de los users y no puedo saber porque
-
-Espero me puedas dar una pista de que es lo que esta mal de eso. 
-
-Cualquier correccion estoy a disposicion!
+Cualquier cosa me avisas.
 
 
 

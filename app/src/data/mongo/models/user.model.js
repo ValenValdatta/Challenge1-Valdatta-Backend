@@ -12,6 +12,7 @@ const schema = new Schema(
             "https://img.freepik.com/vector-premium/icono-circulo-usuario-anonimo-ilustracion-vector-estilo-plano-sombra_520826-1931.jpg",
       },
       password: { type: String, required: true },
+      age: { type: Number },
       role: { type: Number, default: 0, index: true },
    },
    {

@@ -50,5 +50,23 @@
     "photo": "https://img.freepik.com/vector-premium/icono-circulo-usuario-anonimo-ilustracion-vector-estilo-plano-sombra_520826-1931.jpg",
     "email": "valen@gmail.com",
     "role": "admin"
+  },
+  {
+    "id": "7cae2010c30d37cf209cb9be",
+    "photo": "https://img.freepik.com/vector-premium/icono-circulo-usuario-anonimo-ilustracion-vector-estilo-plano-sombra_520826-1931.jpg",
+    "email": "valen@gmail.com",
+    "password": "hola1234"
+  },
+  {
+    "id": "999cece5762042dd1a252744",
+    "photo": "https://img.freepik.com/vector-premium/icono-circulo-usuario-anonimo-ilustracion-vector-estilo-plano-sombra_520826-1931.jpg",
+    "email": "valen@gmail.com",
+    "password": "hola1234"
+  },
+  {
+    "id": "280d72707665dc763d68cb33",
+    "photo": "https://img.freepik.com/vector-premium/icono-circulo-usuario-anonimo-ilustracion-vector-estilo-plano-sombra_520826-1931.jpg",
+    "email": "valen@gmail.com",
+    "password": "hola1234"
   }
 ]
