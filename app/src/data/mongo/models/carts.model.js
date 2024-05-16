@@ -1,13 +1,12 @@
 import { Schema, Types, model } from "mongoose";
-import mongoosePaginate from "mongoose-paginate-v2"
-
+import mongoosePaginate from "mongoose-paginate-v2";
 
 const collection = "carts";
 const schema = new Schema(
    {
-      user_id: { type: Types.ObjectId , ref: "users", required: true },
-      product_id: { type: Types.ObjectId , ref: "products", required: true },
-      quantity: { type: Number, required: true },
+      user_id: { type: Types.ObjectId, ref: "users", required: true },
+      product_id: { type: Types.ObjectId, ref: "products", required: true },
+      quantity: { type: Number, required: true, default: 1 },
       state: {
          type: String,
          enum: ["reserved", "paid", "delivered"],
@@ -26,6 +25,12 @@ schema.pre("find", function () {
 });
 schema.pre("find", function () {
    this.populate("product_id", "title category");
+});
+schema.pre("findOne", function () {
+   this.populate("user_id", "email photo");
+});
+schema.pre("findOne", function () {
+   this.populate("product_id");
 });
 
 const Cart = model(collection, schema);

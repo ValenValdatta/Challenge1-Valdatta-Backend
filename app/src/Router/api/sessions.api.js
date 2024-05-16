@@ -49,13 +49,15 @@ sessionRouter.post(
    }
 );
 
-sessionRouter.get("/online", async (req, res, next) => {
+sessionRouter.get("/", async (req, res, next) => {
    try {
       if (req.session.online) {
          return res.json({
             statusCode: 200,
             message: "Is online",
             user_id: req.session.user_id,
+            email: req.session.email,
+            password: req.session.password,
          });
       }
       return res.json({
