@@ -34,6 +34,7 @@ sessionRouter.post(
          const { email, password } = req.body;
          const one = await usersManager.readByEmail(email);
          req.session.email = email;
+         req.session.password = password;
          req.session.online = true;
          req.session.role = one.role;
          req.session.photo = one.photo;
@@ -68,11 +69,16 @@ sessionRouter.get("/online", async (req, res, next) => {
 
 sessionRouter.post("/signout", (req, res, next) => {
    try {
-      req.session.destroy();
-      return res.json({
-         statusCode: 200,
-         message: "Signed Out",
-      });
+      if (req.session.email) {
+         req.session.destroy();
+         return res.json({
+            statusCode: 200,
+            message: "Signed Out",
+         });
+      }
+      const error = new Error("invalid credentials")
+      error.statusCode = 401;
+      throw error
    } catch (error) {
       return next(error);
    }
