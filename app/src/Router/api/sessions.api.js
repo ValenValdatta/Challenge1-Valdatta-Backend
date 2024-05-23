@@ -1,20 +1,16 @@
 import { Router } from "express";
 import usersManager from "../../data/mongo/UsersManager.mongo.js";
-import isValidEmail from "../../middlewares/isValidEmail.mid.js";
-import isValidData from "../../middlewares/isValidData.mid.js";
 import isValidUser from "../../middlewares/isValidUser.mid.js";
 import isValidPassword from "../../middlewares/isValidPassword.mid.js";
+import passport from "../../middlewares/passport.mid.js";
 
 const sessionRouter = Router();
 
 sessionRouter.post(
    "/register",
-   isValidData,
-   isValidEmail,
+   passport.authenticate("register", { session: false }),
    async (req, res, next) => {
       try {
-         const data = req.body;
-         await usersManager.create(data);
          return res.json({
             statusCode: 201,
             message: "Registered!",
@@ -27,21 +23,13 @@ sessionRouter.post(
 
 sessionRouter.post(
    "/login",
-   isValidUser,
-   isValidPassword,
+   passport.authenticate("login", {session: false}),
    async (req, res, next) => {
       try {
-         const { email, password } = req.body;
-         const one = await usersManager.readByEmail(email);
-         req.session.email = email;
-         req.session.password = password;
-         req.session.online = true;
-         req.session.role = one.role;
-         req.session.photo = one.photo;
-         req.session.user_id = one._id;
          return res.json({
             statusCode: 200,
             message: "Logged in",
+            token: req.user.token
          });
       } catch (error) {
          return next(error);
@@ -78,12 +66,24 @@ sessionRouter.post("/signout", (req, res, next) => {
             message: "Signed Out",
          });
       }
-      const error = new Error("invalid credentials")
+      const error = new Error("invalid credentials");
       error.statusCode = 401;
-      throw error
+      throw error;
    } catch (error) {
       return next(error);
    }
 });
+
+sessionRouter.get("/google", passport.authenticate("google", { scope: ["email", "profile"] }))
+sessionRouter.get("/google/callback", passport.authenticate("google",{ session: false}), (req, res, next) => {
+   try {
+      return res.json({
+         statusCode: 200,
+         message: "Logged in with Google"
+      })
+   } catch (error) {
+      return next(error)
+   }
+})
 
 export default sessionRouter;

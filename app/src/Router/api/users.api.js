@@ -16,7 +16,7 @@ usersRouter.delete("/:uid", destroy);
 
 async function read (req, res, next) {
     try {
-       const { email } = req.query;
+       const { email } = req.session;
        const all = await usersManager.read(email);
        if (all.length > 0) {
           return res.json ({
