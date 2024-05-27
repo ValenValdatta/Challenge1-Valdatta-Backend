@@ -20,13 +20,17 @@ fetch("/api/products")
    .catch((err) => console.log(err));
 
 
-   fetch("/api/sessions/login")
-   .then((res) => res.json())
-   .then((res) => {
-      console.log("Respuesta del servidor:", res);
-      const user = res.email;
-      document.querySelector("#user").innerHTML = user;
-   })
-   .catch((error) => {
-      console.error("Error:", error);
-   });
+   // fetch("/api/sessions/login")
+   // .then((res) => res.json())
+   // .then((res) => {
+   //    console.log("Respuesta del servidor:", res);
+   //    const user = getCookieValue("email");
+   //    if(user) {
+   //       document.querySelector("#user").innerHTML = user;
+   //    } else {
+   //       console.log("no se encontro el email en la cookie");
+   //    }
+   // })
+   // .catch((error) => {
+   //    console.error("Error:", error);
+   // });

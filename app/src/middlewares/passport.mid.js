@@ -1,6 +1,7 @@
 import passport from "passport";
 import { Strategy as LocalStrategy } from "passport-local";
 import { Strategy as GoogleStrategy } from "passport-google-oauth2";
+import { Strategy as JWTStrategy, ExtractJwt } from "passport-jwt";
 import usersManager from "../data/mongo/UsersManager.mongo.js";
 import { createHash, verifyHash } from "../utils/hash.util.js";
 import { createToken } from "../utils/token.util.js";
@@ -54,16 +55,16 @@ passport.use(
                // req.session.role = one.role;
                // req.session.photo = one.photo;
                // req.session.user_id = one._id;
-               const data = {
+               const user = {
                   email,
                   role: one.role,
                   photo: one.photo,
                   _id: one._id,
                   online: true,
                };
-               const token = createToken(data);
-               one.token = token;
-               return done(null, one);
+               const token = createToken(user);
+               user.token = token;
+               return done(null, user);
             }
             const error = new Error("Invalid credentials");
             error.statusCode = 401;
@@ -108,5 +109,30 @@ passport.use(
       }
    )
 );
+
+passport.use(
+   "jwt",
+   new JWTStrategy(
+     {
+       jwtFromRequest: ExtractJwt.fromExtractors([
+         (req) => req?.cookies["token"],
+       ]),
+       secretOrKey: process.env.SECRET_JWT,
+     },
+     (data, done) => {
+       try {
+         if (data) {
+           return done(null, data);
+         } else {
+           const error = new Error("Forbidden from jwt!");
+           error.statusCode = 403;
+           return done(error);
+         }
+       } catch (error) {
+         return done(error);
+       }
+     }
+   )
+ );
 
 export default passport;
