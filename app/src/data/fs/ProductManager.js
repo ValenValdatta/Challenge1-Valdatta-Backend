@@ -3,7 +3,7 @@ import crypto from "crypto";
 
 class ProductManager {
    constructor() {
-      this.path = "./fs/files/products.json";
+      this.path = "./src/data/fs/files/products.json";
       this.init();
    }
    init() {
@@ -18,26 +18,21 @@ class ProductManager {
    }
    async create(data) {
       try {
-         if (!data.title) {
-            const error = new Error("Ingrese un Producto");
-            throw error;
-         } else {
-            const product = {
-               id: crypto.randomBytes(12).toString("hex"),
-               title: data.title,
-               photo: data.photo,
-               category: data.category,
-               price: data.price,
-               stock: data.stock,
-            };
-            let all = await fs.promises.readFile(this.path, "utf-8");
-            all = JSON.parse(all);
-            all.push(product);
-            all = JSON.stringify(all, null, 2);
-            await fs.promises.writeFile(this.path, all);
-            console.log("Producto creado!");
-            return product;
-         }
+         const product = {
+            id: crypto.randomBytes(12).toString("hex"),
+            title: data.title,
+            photo: data.photo || "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCBexfj_xSBiEe5xII-WRM2uDdhGUy79htnNz5g-lJhQ&s",
+            category: data.category,
+            price: data.price,
+            stock: data.stock,
+         };
+         let all = await fs.promises.readFile(this.path, "utf-8");
+         all = JSON.parse(all);
+         all.push(product);
+         all = JSON.stringify(all, null, 2);
+         await fs.promises.writeFile(this.path, all);
+         console.log("Producto creado!");
+         return product;
       } catch (error) {
          throw error;
       }
@@ -46,15 +41,15 @@ class ProductManager {
       try {
          let all = await fs.promises.readFile(this.path, "utf-8");
          all = JSON.parse(all);
-         //DEBAJO ES EL FILTRO PARA QUE FILTRE CATEGORIAS POR QUERY 
-         if(all.length === 0){
-            throw new Error("no hay productos para leer")
+         //DEBAJO ES EL FILTRO PARA QUE FILTRE CATEGORIAS POR QUERY
+         if (all.length === 0) {
+            throw new Error("no hay productos para leer");
          }
-         if(cat !== null) {
-            all = all.filter(each => each.category === cat)
-            return all
+         if (cat !== null) {
+            all = all.filter((each) => each.category === cat);
+            return all;
          } else {
-            console.log(all);
+            // console.log(all);
             return all;
          }
       } catch (error) {
@@ -70,8 +65,28 @@ class ProductManager {
             throw new Error("no se encontro el id");
          } else {
             console.log(one);
-            console.log("Se ha leido el producto"+ pid);
+            console.log("Se ha leido el producto" + pid);
             return one;
+         }
+      } catch (error) {
+         throw error;
+      }
+   }
+   async update(id, data) {
+      try {
+         let all = await this.read();
+         let one = all.find((each) => each.id === id);
+         if (one) {
+            for (let prop in data) {
+               one[prop] = data[prop];
+            }
+            all = JSON.stringify(all, null, 2);
+            await fs.promises.writeFile(this.path, all);
+            return one;
+         } else {
+            const error = new Error("Not Found");
+            error.statusCode = 404;
+            throw error;
          }
       } catch (error) {
          throw error;
@@ -250,5 +265,5 @@ async function crearProducto() {
 
 // crearProducto()
 
-const productManager = new ProductManager()
-export default productManager
+const productManager = new ProductManager();
+export default productManager;

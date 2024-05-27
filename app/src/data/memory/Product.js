@@ -33,7 +33,6 @@ class ProductManager {
          if (!one) {
             throw new Error("no existe el id del producto");
          } else {
-            console.log(one);
             return one;
          }
       } catch (error) {
@@ -46,9 +45,8 @@ class ProductManager {
          if (!one) {
             throw new Error("el producto no existe!");
          } else {
-            let filtered = product.filter((each) => each.id !== id);
-            product.push(filtered);
-            console.log(one);
+            let filtered = ProductManager.#product.filter((each) => each.id !== id);
+            ProductManager.#product = filtered;
             return one;
          }
       } catch (error) {
@@ -122,7 +120,7 @@ function crearProducto() {
          price: 300,
          stock: 45,
       });
-      product.create({
+      const product1 = product.create({
          title: "Kingstone",
          photo: "foto",
          category: "Disco SSD",
@@ -130,7 +128,7 @@ function crearProducto() {
          stock: 55,
       });
       console.log(product.read());
-      // console.log(product.readOne(producto1.id)); estuve intentando declarando constantes a los productos pero no funciono y lo borre
+      console.log(product.readOne(product1.id));
       // console.log(product.destroy(producto10.id));
    } catch (error) {
       throw error;

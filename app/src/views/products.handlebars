@@ -1,0 +1,40 @@
+<h1 class="text-center bg-primary-subtle">PRODUCTS</h1>
+<section class="d-flex">
+    <article id="" class="d-flex flex-column align-items-center w-50">
+        <h1 class="text-center">Crear Producto!</h1>
+        <form class="d-flex flex-column w-50">
+            <input class="m-2" type="text" name="title" id="title" placeholder="title">
+            <input class="m-2" type="text" name="price" id="price" placeholder="price">
+            <input class="m-2" type="text" name="category" id="category" placeholder="category">
+            <input class="m-2" type="text" name="photo" id="photo" placeholder="photo">
+            <input class="m-2" type="button" id="create" value="Create">
+        </form>
+    </article>
+    <article id="products" class="d-flex flex-wrap w-50"></article>
+</section>
+<script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+<script>
+  const socket = io();
+  socket.on("products", data =>{
+    let template = ``
+    template = data.map(each => `
+    <div class="card m-2" style="width: 12rem;">
+        <img style="height: 10rem" src="${each.photo}" class="card-img-top object-fit-scale" alt="...">
+        <div class="card-body">
+            <a href="/products/${each.id}" class="">${each.title}</a>
+            {{!-- <p class="card-title">${each.title}</p> --}}
+            <p class="card-title">${each.category}</p>
+            <p class="card-title">$${each.price}</p>
+        </div>
+    </div>`
+)
+    document.querySelector("#products").innerHTML = template
+    })
+    document.querySelector("#create").addEventListener("click", (event) =>{
+        const title = document.querySelector("#title").value
+        const category = document.querySelector("#category").value
+        const price = document.querySelector("#price").value
+        const photo = document.querySelector("#photo").value
+        socket.emit("create", {title, category, price, photo})
+    } )
+</script>

@@ -3,7 +3,7 @@ import crypto from "crypto";
 
 class UserManager {
    constructor() {
-      this.path = "./fs/files/users.json";
+      this.path = "./src/data/fs/files/users.json";
       this.init();
    }
    init() {
@@ -24,7 +24,7 @@ class UserManager {
          } else {
             const user = {
                id: crypto.randomBytes(12).toString("hex"),
-               photo: data.photo,
+               photo: data.photo || "https://img.freepik.com/vector-premium/icono-circulo-usuario-anonimo-ilustracion-vector-estilo-plano-sombra_520826-1931.jpg",
                email: data.email,
                password: data.password,
                role: data.role,
@@ -52,7 +52,7 @@ class UserManager {
             all = all.filter(each => each.role === role)
             return all
          } else {
-            console.log(all);
+            // console.log(all);
             return all
          }        
       } catch (error) {
@@ -67,8 +67,28 @@ class UserManager {
          if (!one) {
             throw new Error("no se encontro el id");
          } else {
-            console.log(one);
+            // console.log(one);
             return one;
+         }
+      } catch (error) {
+         throw error;
+      }
+   }
+   async update(id, data) {
+      try {
+         let all = await this.read();
+         let one = all.find((each) => each.id === id);
+         if (one) {
+            for (let prop in data) {
+               one[prop] = data[prop];
+            }
+            all = JSON.stringify(all, null, 2);
+            await fs.promises.writeFile(this.path, all);
+            return one;
+         }else {
+            const error = new Error("Not Found")
+            error.statusCode = 404
+            throw error
          }
       } catch (error) {
          throw error;
@@ -98,28 +118,28 @@ async function crearUsuario() {
    try {
       const user = new UserManager();
       await user.create({
-         photo: "foto",
+         photo: "https://cdn-icons-png.flaticon.com/512/149/149071.png",
          email: "admin@gmail.com",
          password: "admin123",
-         role: "admin",
+         role: "0",
       });
       await user.create({
-         photo: "foto",
+         photo: "https://cdn-icons-png.flaticon.com/512/149/149071.png",
          email: "user1@gmail.com",
          password: "user1!",
-         role: "user",
+         role: "0",
       });
       await user.create({
-         photo: "foto",
+         photo: "https://cdn-icons-png.flaticon.com/512/149/149071.png",
          email: "user2@gmail.com",
          password: "user2!",
-         role: "user",
+         role: "0",
       });
       await user.create({
-         photo: "foto",
+         photo: "https://cdn-icons-png.flaticon.com/512/149/149071.png",
          email: "user3@gmail.com",
          password: "user3!",
-         role: "user",
+         role: "0",
       });
       await user.read();
       // await user.readOne("c8e1de61c5cc8eeabcf59fa0");
