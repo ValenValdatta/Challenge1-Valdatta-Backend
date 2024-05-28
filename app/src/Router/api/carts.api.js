@@ -1,14 +1,20 @@
-import { Router } from "express";
+import CustomRouter from "../CustomRouter.js";
 import cartsManager from "../../data/mongo/CartsManager.mongo.js";
 
-const cartsRouter = Router();
+class CartsRouter extends CustomRouter {
+   init() {
+      this.create("/", create);
+      this.read("/", read);
+      this.read("/:cid", readOne)
+      this.read("/paginate", paginate)
+      this.update("/:cid", update);
+      this.destroy("/:cid", destroy);
+   }
+}
 
-cartsRouter.post("/", create);
-cartsRouter.get("/", read);
-cartsRouter.get("/:cid", readOne)
-cartsRouter.get("/paginate", paginate)
-cartsRouter.put("/:cid", update);
-cartsRouter.delete("/:cid", destroy);
+const cartsRouter = new CartsRouter()
+export default cartsRouter.getRouter();
+
 
 async function create(req, res, next) {
    try {
@@ -117,4 +123,3 @@ async function destroy(req, res, next) {
       return next(error);
    }
 }
-export default cartsRouter;

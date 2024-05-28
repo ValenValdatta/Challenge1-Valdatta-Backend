@@ -1,8 +1,8 @@
-Hola Nao como estas, aca te dejo la entrega de auth, le agregue la autenticacion de google.
+Lauti aca te dejo el repo, lo estuve probando y por lo que veo esta ok
 
-Cuando cambie lo del login con token algunos endpoint me dejaron de funcionar y no supe arreglarlos.
+Entiendo que hay un par de vistas que me faltan, ya las voy a ir agregando.
 
-Cualquier cosa me avisas.
+Cualquier cosa me decis.
 
 
 
