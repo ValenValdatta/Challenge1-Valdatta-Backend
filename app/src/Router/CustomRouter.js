@@ -34,10 +34,8 @@ class CustomRouter {
          res.json({ statusCode: 200, response, info });
       res.response201 = (response) => res.json({ statusCode: 201, response });
       res.error400 = (message) => res.json({ statusCode: 400, message });
-      res.error401 = () =>
-         res.json({ statusCode: 401, message: "Bad Auth from policies" });
-      res.error403 = () =>
-         res.json({ statusCode: 401, message: "Forbidden from policies" });
+      res.error401 = () => res.json({statusCode: 401, message: "Bad Auth from policies"})
+      res.error403 = () => res.json({statusCode: 401, message: "Forbidden from policies"})
       res.error404 = () =>
          res.json({ statusCode: 404, message: "not found docs" });
       return next();
@@ -70,36 +68,16 @@ class CustomRouter {
 
    // create("/products", isValidAdmin, isText, create)
    create(path, arrayOfPolicies, ...callbacks) {
-      this.router.post(
-         path,
-         this.response,
-         this.policies(arrayOfPolicies),
-         this.applyCbs(callbacks)
-      );
+      this.router.post(path, this.response, this.policies(arrayOfPolicies), this.applyCbs(callbacks));
    }
    read(path, arrayOfPolicies, ...callbacks) {
-      this.router.get(
-         path,
-         this.response,
-         this.policies(arrayOfPolicies),
-         this.applyCbs(callbacks)
-      );
+      this.router.get(path, this.response, this.policies(arrayOfPolicies), this.applyCbs(callbacks));
    }
    update(path, arrayOfPolicies, ...callbacks) {
-      this.router.put(
-         path,
-         this.response,
-         this.policies(arrayOfPolicies),
-         this.applyCbs(callbacks)
-      );
+      this.router.put(path, this.response, this.policies(arrayOfPolicies), this.applyCbs(callbacks));
    }
    destroy(path, arrayOfPolicies, ...callbacks) {
-      this.router.delete(
-         path,
-         this.response,
-         this.policies(arrayOfPolicies),
-         this.applyCbs(callbacks)
-      );
+      this.router.delete(path, this.response, this.policies(arrayOfPolicies), this.applyCbs(callbacks));
    }
    use(path, ...callbacks) {
       this.router.use(path, this.response, this.applyCbs(callbacks));

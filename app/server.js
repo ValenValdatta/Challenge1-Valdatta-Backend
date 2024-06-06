@@ -1,10 +1,11 @@
-import "dotenv/config.js";
+import enviroment from "./src/utils/env.util.js";
 import express from "express"; //IMPORTO EL MODULO DE EXPRESS
 import { createServer } from "http";
 import { Server } from "socket.io";
 import morgan from "morgan";
 import { engine } from "express-handlebars";
 import cookieParser from "cookie-parser";
+import argsUtil from "./src/utils/args.util.js";
 import session from "express-session";
 import MongoStore from "connect-mongo";
 
@@ -20,7 +21,7 @@ import dbConnect from "./src/utils/dbConnect.js";
 // console.log(process.env);
 
 const server = express();
-const port = process.env.PORT || 9000;
+const port = enviroment.PORT || argsUtil.p;
 const ready = async () => {
    console.log("server ready on port" + port);
    await dbConnect();
@@ -49,7 +50,7 @@ server.use(
       cookie: { maxAge: 60 * 60 * 1000 },
    })
 );
-server.use(cookieParser(process.env.SECRET));
+server.use(cookieParser(enviroment.SECRET));
 server.use(express.urlencoded({ extended: true }));
 server.use(express.json());
 server.use(express.static(__dirname + "/public"));
@@ -71,7 +72,7 @@ server.get("/", async (requirements, response) => {
          success: false,
       });
    }
-});
+});   
 
 //get con dos parametros
 
@@ -122,3 +123,4 @@ server.get("/api/users/:uid", async (req, res) => {
 server.use("/", indexRouter);
 server.use(errorHandler);
 server.use(pathHandler);
+
