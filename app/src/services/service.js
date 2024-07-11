@@ -1,10 +1,10 @@
 class Service {
-   constructor(manager) {
-      this.model = manager;
+   constructor(repository) {
+      this.repository = repository;
    }
    createService = async (data) => {
       try {
-         const one = await this.model.create(data);
+         const one = await this.repository.createRepository(data);
          return one;
       } catch (error) {
          throw error;
@@ -12,7 +12,15 @@ class Service {
    };
    readService = async (data) => {
       try {
-         const all = await this.model.read(data);
+         const all = await this.repository.readRepository(data);
+         return all;
+      } catch (error) {
+         throw error;
+      }
+   };
+   readByEmailService = async (email) => {
+      try {
+         const all = await this.repository.readByEmailRepository(email);
          return all;
       } catch (error) {
          throw error;
@@ -20,7 +28,7 @@ class Service {
    };
    paginateService = async ({ filter, opts }) => {
       try {
-         const all = await this.model.paginate({ filter, opts });
+         const all = await this.repository.paginateRepository({ filter, opts });
          return all;
       } catch (error) {
          throw error;
@@ -28,15 +36,15 @@ class Service {
    };
    readOneService = async (uid) => {
       try {
-         const one = await this.model.readOne(uid);
+         const one = await this.repository.readOneRepository(uid);
          return one;
       } catch (error) {
          throw error;
       }
    };
-   updateService = async (uid, data) => {
+   updateService = async (id, data) => {
       try {
-         const one = await this.model.update(uid, data);
+         const one = await this.repository.updateRepository(id, data);
          return one;
       } catch (error) {
          throw error;
@@ -44,7 +52,7 @@ class Service {
    };
    destroyService = async (uid) => {
       try {
-         const one = await this.model.destroy(uid);
+         const one = await this.repository.destroyRepository(uid);
          return one;
       } catch (error) {
          throw error;

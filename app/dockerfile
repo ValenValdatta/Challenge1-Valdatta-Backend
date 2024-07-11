@@ -1,0 +1,27 @@
+#definimos que tipo de aplicacion vamos a hacer (NODE)
+
+FROM node
+
+#ahora definimos donde se va a guardar el proyecto/imagen
+
+WORKDIR /coder
+
+#copiamos/movemos el package desde el servidor local hacia el contenedor
+
+COPY package*.json ./
+
+#instalamos los paquetes del json
+
+RUN npm install
+
+#copiamos el resto de la aplicacion
+
+COPY . .
+
+#configuramos el puerto de exposicion (donde va a levantar el contenedor)
+
+EXPOSE 8080
+
+#configuramos el comando de inicializacion
+
+CMD [ "npm", "start" ]

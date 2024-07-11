@@ -1,6 +1,6 @@
 import crypto from "crypto";
 
-class ProductManager {
+class ProductsManager {
    static quantity = 0;
 
    static #product = [];
@@ -15,21 +15,21 @@ class ProductManager {
             price: data.price,
             stock: data.stock,
          };
-         ProductManager.#product.push(product);
+         ProductsManager.#product.push(product);
       } catch (error) {
          throw error;
       }
    }
    read() {
       try {
-         return ProductManager.#product;
+         return ProductsManager.#product;
       } catch (error) {
          throw error;
       }
    }
    readOne(id) {
       try {
-         let one = ProductManager.#product.find((each) => each.id === id);
+         let one = ProductsManager.#product.find((each) => each.id === id);
          if (!one) {
             throw new Error("no existe el id del producto");
          } else {
@@ -41,12 +41,12 @@ class ProductManager {
    }
    destroy(id) {
       try {
-         let one = ProductManager.#product.find((each) => each.id === id);
+         let one = ProductsManager.#product.find((each) => each.id === id);
          if (!one) {
             throw new Error("el producto no existe!");
          } else {
-            let filtered = ProductManager.#product.filter((each) => each.id !== id);
-            ProductManager.#product = filtered;
+            let filtered = ProductsManager.#product.filter((each) => each.id !== id);
+            ProductsManager.#product = filtered;
             return one;
          }
       } catch (error) {
@@ -56,7 +56,7 @@ class ProductManager {
 }
 function crearProducto() {
    try {
-      const product = new ProductManager();
+      const product = new ProductsManager();
       product.create({
          title: "Samsung",
          photo: "foto",
@@ -135,4 +135,5 @@ function crearProducto() {
    }
 }
 
-crearProducto();
+const productsManager = new ProductsManager();
+export default productsManager;

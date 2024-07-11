@@ -1,6 +1,8 @@
 import { Router } from "express";
 import { verifyToken } from "../utils/token.util.js";
-import usersManager from "../data/mongo/UsersManager.mongo.js";
+import usersRepository from "../repositories/users.rep.js";
+import winston from "../utils/wisnton.util.js";
+// import usersManager from "../data/mongo/UsersManager.mongo.js";
 
 class CustomRouter {
    // para construir y configurar cada instancia del enrutador
@@ -33,11 +35,32 @@ class CustomRouter {
       res.paginate = (response, info) =>
          res.json({ statusCode: 200, response, info });
       res.response201 = (response) => res.json({ statusCode: 201, response });
-      res.error400 = (message) => res.json({ statusCode: 400, message });
-      res.error401 = () => res.json({statusCode: 401, message: "Bad Auth from policies"})
-      res.error403 = () => res.json({statusCode: 401, message: "Forbidden from policies"})
-      res.error404 = () =>
-         res.json({ statusCode: 404, message: "not found docs" });
+      res.error400 = (message) => {
+         const errorMessage = `${req.method} ${
+            req.url
+         } 400 - ${new Date().toLocaleTimeString()} - ${message}`;
+         winston.ERROR(errorMessage);
+         return res.json({ statusCode: 400, message });
+      };
+      res.error401 = () => {
+         const errorMessage = `${req.method} ${
+            req.url
+         } 401 - ${new Date().toLocaleTimeString()} - Bad Auth from policies`;
+         winston.ERROR(errorMessage);
+         return res.json({ statusCode: 401, message: "Bad Auth from policies" });
+      };
+      res.error403 = () => {
+         const errorMessage = `${req.method} ${
+            req.url
+          } 403 - ${new Date().toLocaleTimeString()} - Forbidden from policies`;
+          winston.ERROR(errorMessage);
+         return res.json({ statusCode: 401, message: "Forbidden from policies" });}
+      res.error404 = () => {
+         const errorMessage = `${req.method} ${
+            req.url
+          } 404 - ${new Date().toLocaleTimeString()} -not found docs`;
+          winston.ERROR(errorMessage);
+         return res.json({ statusCode: 404, message: "not found docs" });}
       return next();
    };
 
@@ -54,7 +77,9 @@ class CustomRouter {
                   (policies.includes("USER") && role === 0) ||
                   (policies.includes("ADMIN") && role === 1)
                ) {
-                  const user = await usersManager.readByEmail(email);
+                  const user = await usersRepository.readByEmailRepository(
+                     email
+                  );
                   //proteger contraseña del usuario!!!
                   req.user = user;
                   return next();
@@ -68,16 +93,36 @@ class CustomRouter {
 
    // create("/products", isValidAdmin, isText, create)
    create(path, arrayOfPolicies, ...callbacks) {
-      this.router.post(path, this.response, this.policies(arrayOfPolicies), this.applyCbs(callbacks));
+      this.router.post(
+         path,
+         this.response,
+         this.policies(arrayOfPolicies),
+         this.applyCbs(callbacks)
+      );
    }
    read(path, arrayOfPolicies, ...callbacks) {
-      this.router.get(path, this.response, this.policies(arrayOfPolicies), this.applyCbs(callbacks));
+      this.router.get(
+         path,
+         this.response,
+         this.policies(arrayOfPolicies),
+         this.applyCbs(callbacks)
+      );
    }
    update(path, arrayOfPolicies, ...callbacks) {
-      this.router.put(path, this.response, this.policies(arrayOfPolicies), this.applyCbs(callbacks));
+      this.router.put(
+         path,
+         this.response,
+         this.policies(arrayOfPolicies),
+         this.applyCbs(callbacks)
+      );
    }
    destroy(path, arrayOfPolicies, ...callbacks) {
-      this.router.delete(path, this.response, this.policies(arrayOfPolicies), this.applyCbs(callbacks));
+      this.router.delete(
+         path,
+         this.response,
+         this.policies(arrayOfPolicies),
+         this.applyCbs(callbacks)
+      );
    }
    use(path, ...callbacks) {
       this.router.use(path, this.response, this.applyCbs(callbacks));

@@ -7,7 +7,7 @@ class UsersController {
          const one = await createService(data);
          return res.json({
             statusCode: 201,
-            message: "CREATED USER: " + one.id,
+            message: "CREATED USER: " + one._id,
          });
       } catch (error) {
          return next(error);
@@ -16,7 +16,7 @@ class UsersController {
    async read(req, res, next) {
       try {
          const email = req.user.email;
-         const all = await readService({ email });
+         const all = await readService( email );
          if (all.length > 0) {
             return res.response200(all);
          } else {

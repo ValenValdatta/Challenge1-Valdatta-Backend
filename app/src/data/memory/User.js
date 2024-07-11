@@ -1,27 +1,17 @@
-class UserManager {
+class UsersManager {
    static quantity = 0;
-
    static #user = [];
 
-   create(data) {
-      const user = {
-         id:
-            UserManager.quantity === 0
-               ? 1
-               : UserManager.#user[UserManager.quantity - 1].id + 1,
-         photo: data.photo,
-         email: data.email,
-         password: data.password,
-         role: data.role,
-      };
-      UserManager.#user.push(user) && UserManager.quantity++;
+   async create(data) {
+      UsersManager.#user.push(data) && UsersManager.quantity++;
+      return data
    }
-   read() {
-      return UserManager.#user;
+   async read() {
+      return UsersManager.#user;
    }
    async readOne(id) {
       try {
-         let one = await UserManager.#user.find((each) => each === id);
+         let one = await UsersManager.#user.find((each) => each === id);
          if (!one) {
             throw new Error("el producto no existe!");
          } else {
@@ -34,7 +24,7 @@ class UserManager {
    }
    async destroy(id) {
       try {
-         let one = await UserManager.#user.find((each) => each === id);
+         let one = await UsersManager.#user.find((each) => each === id);
          if (!one) {
             throw new Error("el producto no existe!");
          } else {
@@ -50,7 +40,7 @@ class UserManager {
 }
 async function crearUsuario() {
    try {
-      const user = new UserManager();
+      const user = new UsersManager();
       await user.create({
          photo: "foto",
          email: "admin@gmail.com",
@@ -82,4 +72,5 @@ async function crearUsuario() {
    }
 }
 
-crearUsuario();
+const usersManager = new UsersManager();
+export default usersManager;

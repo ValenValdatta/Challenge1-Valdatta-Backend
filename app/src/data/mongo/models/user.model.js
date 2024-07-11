@@ -14,6 +14,8 @@ const schema = new Schema(
       password: { type: String, required: true },
       age: { type: Number, default: 20 },
       role: { type: Number, default: 0, index: true },
+      verify: { type: Boolean, default: false },
+      verifyCode: { type: String, required: true },
    },
    {
       timestamps: true,

@@ -5,12 +5,12 @@ import { read, paginate, readOne, create, update, destroy } from "../../controll
 
 class UsersRouter extends CustomRouter {
    init() {
-      this.read("/", ["USER"], read);
-      this.read("/paginate", ["USER"], paginate);
-      this.read("/:uid", ["USER"], readOne);
-      this.create("/", ["ADMIN"], uploader.single("photo"), isPhoto, create);
-      this.update("/:uid", ["ADMIN"], update);
-      this.destroy("/:uid", ["ADMIN"], destroy);
+      this.read("/", ["PUBLIC"], read);
+      this.read("/paginate", ["PUBLIC"], paginate);
+      this.read("/:uid", ["PUBLIC"], readOne);
+      this.create("/", ["PUBLIC"], uploader.single("photo"), isPhoto, create);
+      this.update("/:uid", ["PUBLIC"], update);
+      this.destroy("/:uid", ["PUBLIC"], destroy);
    }
 }
 

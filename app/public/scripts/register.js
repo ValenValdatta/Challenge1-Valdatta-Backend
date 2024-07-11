@@ -13,7 +13,7 @@ document.querySelector("#register").addEventListener("click", async () => {
     let response = await fetch("/api/sessions/register", opts);
     response = await response.json();
     if (response.statusCode === 201) {
-        return location.replace("/pages/login.html");
+        return location.replace("/pages/verified.html");
     }
     return Swal.fire({
       title: response.message,

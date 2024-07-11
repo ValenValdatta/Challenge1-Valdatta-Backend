@@ -1,7 +1,7 @@
 import fs from "fs";
 import crypto from "crypto";
 
-class ProductManager {
+class ProductsManager {
    constructor() {
       this.path = "./src/data/fs/files/products.json";
       this.init();
@@ -114,7 +114,7 @@ class ProductManager {
 
 async function crearProducto() {
    try {
-      const product = new ProductManager();
+      const product = new ProductsManager();
       await product.create({
          title: "Samsung",
          photo: "https://http2.mlstatic.com/D_NQ_NP_2X_999462-MLA54226388761_032023-F.webp",
@@ -265,5 +265,5 @@ async function crearProducto() {
 
 // crearProducto()
 
-const productManager = new ProductManager();
-export default productManager;
+const productsManager = new ProductsManager();
+export default productsManager;

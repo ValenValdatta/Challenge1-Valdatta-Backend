@@ -1,3 +1,5 @@
+import { readByEmailService } from "../services/sessions.service.js";
+
 class SessionsController {
    async register(req, res, next) {
       try {
@@ -21,6 +23,17 @@ class SessionsController {
             });
       } catch (error) {
          return next(error);
+      }
+   }
+   async verifyCode(req, res, next) {
+      const { email, code } = req.body;
+      const one = await readByEmailService(email);
+      const verify = code === one.verifyCode;
+      if (verify) {
+         await updateService(one._id, { verify });
+         return res.message200("verified user");
+      } else {
+         return res.error400("not verified");
       }
    }
    async profile(req, res, next) {
@@ -73,5 +86,5 @@ class SessionsController {
 }
 
 const sessionController = new SessionsController();
-const { register, login, profile, signout, google } = sessionController;
-export { register, login, profile, signout, google };
+const { register, login, verifyCode, profile, signout, google } = sessionController;
+export { register, login, verifyCode, profile, signout, google };

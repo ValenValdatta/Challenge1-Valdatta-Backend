@@ -1,7 +1,6 @@
 import fs from "fs";
-import crypto from "crypto";
 
-class UserManager {
+class UsersManager {
    constructor() {
       this.path = "./src/data/fs/files/users.json";
       this.init();
@@ -18,47 +17,32 @@ class UserManager {
    }
    async create(data) {
       try {
-         if (!data.email) {
-            const error = new Error("Ingrese un Usuario");
+         if (!data.email || !data.password) {
+            const error = new Error("Ingrese un Usuario o contraseña");
             throw error;
          } else {
-            const user = {
-               id: crypto.randomBytes(12).toString("hex"),
-               photo: data.photo || "https://img.freepik.com/vector-premium/icono-circulo-usuario-anonimo-ilustracion-vector-estilo-plano-sombra_520826-1931.jpg",
-               email: data.email,
-               password: data.password,
-               role: data.role,
-            };
             let all = await fs.promises.readFile(this.path, "utf-8");
             all = JSON.parse(all);
-            all.push(user);
+            all.push(data);
             all = JSON.stringify(all, null, 2);
             await fs.promises.writeFile(this.path, all);
             console.log("Usuario creado!");
-            return user;
+            return data;
          }
       } catch (error) {
          throw error;
       }
    }
-   async read(role = null) {
+   async read(role) {
       try {
-         let all = await fs.promises.readFile(this.path, "utf-8");
-         all = JSON.parse(all);
-         if(all.length === 0){
-            throw new Error("no hay usuarios para mostrar")
-         }
-         if (role !== null){
-            all = all.filter(each => each.role === role)
-            return all
-         } else {
-            // console.log(all);
-            return all
-         }        
+        let all = await fs.promises.readFile(this.path, "utf-8");
+        all = JSON.parse(all);
+        role && (all = all.filter((each) => each.role === role));
+        return all;
       } catch (error) {
-         throw error;
+        throw error;
       }
-   }
+    }
    async readOne(uid) {
       try {
          let all = await fs.promises.readFile(this.path, "utf-8");
@@ -116,7 +100,7 @@ class UserManager {
 
 async function crearUsuario() {
    try {
-      const user = new UserManager();
+      const user = new UsersManager();
       await user.create({
          photo: "https://cdn-icons-png.flaticon.com/512/149/149071.png",
          email: "admin@gmail.com",
@@ -151,5 +135,5 @@ async function crearUsuario() {
 
 // crearUsuario();
 
-const userManager = new UserManager()
-export default userManager
+const usersManager = new UsersManager()
+export default usersManager

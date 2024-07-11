@@ -1,72 +1,22 @@
 [
   {
-    "id": "086e737d45cdd97829be960a",
-    "photo": "https://cdn-icons-png.flaticon.com/512/149/149071.png",
-    "email": "admin@gmail.com",
-    "password": "admin123",
-    "role": "0"
+    "_id": "eaba887fba23ee73f5178ff7",
+    "email": "valentin21@gmail.com",
+    "password": "$2b$10$QpyhJ.nrAupvKnESZwQz9.CwMPSV8fiP5hb.jKoMkIrKv2fRkjcXu",
+    "role": 0,
+    "age": 12,
+    "photo": "https://cdn.icon-icons.com/icons2/1378/PNG/512/avatardefault_92824.png",
+    "createdAt": "2024-06-30T22:18:45.892Z",
+    "updatedAt": "2024-06-30T22:18:45.892Z"
   },
   {
-    "id": "62bde6eab068e93e30ae7a40",
-    "photo": "https://cdn-icons-png.flaticon.com/512/149/149071.png",
-    "email": "user1@gmail.com",
-    "password": "user1!",
-    "role": "0"
-  },
-  {
-    "id": "42bc8a5c391c46ae0ac7ab63",
-    "photo": "https://cdn-icons-png.flaticon.com/512/149/149071.png",
-    "email": "user2@gmail.com",
-    "password": "user2!",
-    "role": "0"
-  },
-  {
-    "id": "bc2ed397a11b199503a636c9",
-    "photo": "https://cdn-icons-png.flaticon.com/512/149/149071.png",
-    "email": "user3@gmail.com",
-    "password": "user3!",
-    "role": "0"
-  },
-  {
-    "id": "5b289613c92505a258156ff4",
-    "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-N-mu0roKlqIc1NpONE3uvyEPpHcz-x94XfVZ4cSn4g&s",
-    "email": "elbicho@gmail.com",
-    "password": "elbicho"
-  },
-  {
-    "id": "e0f5a7753de1c2bb743e3428",
-    "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0cQNVR8Dhjy6FgsxrizQ9PqPyTbGpmPYHLv2O7R9AFQ&s",
-    "email": "Messi@thegoat.com",
-    "password": "GOAT"
-  },
-  {
-    "id": "109cc774cc39ef8e8fac2904",
-    "photo": "https://img.freepik.com/vector-premium/icono-circulo-usuario-anonimo-ilustracion-vector-estilo-plano-sombra_520826-1931.jpg",
-    "email": "valen@gmail.com",
-    "role": "admin"
-  },
-  {
-    "id": "96e5ac70526b65bf4339786a",
-    "photo": "https://img.freepik.com/vector-premium/icono-circulo-usuario-anonimo-ilustracion-vector-estilo-plano-sombra_520826-1931.jpg",
-    "email": "valen@gmail.com",
-    "role": "admin"
-  },
-  {
-    "id": "7cae2010c30d37cf209cb9be",
-    "photo": "https://img.freepik.com/vector-premium/icono-circulo-usuario-anonimo-ilustracion-vector-estilo-plano-sombra_520826-1931.jpg",
-    "email": "valen@gmail.com",
-    "password": "hola1234"
-  },
-  {
-    "id": "999cece5762042dd1a252744",
-    "photo": "https://img.freepik.com/vector-premium/icono-circulo-usuario-anonimo-ilustracion-vector-estilo-plano-sombra_520826-1931.jpg",
-    "email": "valen@gmail.com",
-    "password": "hola1234"
-  },
-  {
-    "id": "280d72707665dc763d68cb33",
-    "photo": "https://img.freepik.com/vector-premium/icono-circulo-usuario-anonimo-ilustracion-vector-estilo-plano-sombra_520826-1931.jpg",
-    "email": "valen@gmail.com",
-    "password": "hola1234"
+    "_id": "cfaa6d9b671c9c9c2b456444",
+    "email": "valentin21@gmail.com",
+    "password": "$2b$10$SZxNZqeJTRf8QXITetk44eKTs/vjLRk3aDzVGVaCN6HOIXmCAzy6C",
+    "role": 0,
+    "age": 12,
+    "photo": "https://cdn.icon-icons.com/icons2/1378/PNG/512/avatardefault_92824.png",
+    "createdAt": "2024-06-30T22:25:37.853Z",
+    "updatedAt": "2024-06-30T22:25:37.853Z"
   }
 ]
