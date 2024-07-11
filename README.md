@@ -1,8 +1,10 @@
-Lauti aca te dejo el repo, lo estuve probando y por lo que veo esta ok
+Lauti aca te dejo la entrega de logger, perdon por estar tan atrasado.
 
-Entiendo que hay un par de vistas que me faltan, ya las voy a ir agregando.
+Estoy tratando de arreglarlo pero el codigo me falla por todos lados y vengo medio a los ponchazos.
 
-Cualquier cosa me decis.
+Te deje unos mensajes por discord espero lo puedas ver.
+
+
 
 
 
