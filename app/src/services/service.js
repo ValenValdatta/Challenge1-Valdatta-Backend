@@ -20,8 +20,8 @@ class Service {
    };
    readByEmailService = async (email) => {
       try {
-         const all = await this.repository.readByEmailRepository(email);
-         return all;
+         const one = await this.repository.readByEmailRepository(email);
+         return one;
       } catch (error) {
          throw error;
       }

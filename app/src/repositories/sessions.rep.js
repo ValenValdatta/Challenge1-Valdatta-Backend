@@ -1,12 +1,14 @@
 import dao from "../data/dao.factory.js";
-const {sessionManager} = dao
+import UsersDTO from "../dto/users.dto.js";
+const { users } = dao;
 
 class SessionsRepository {
     constructor() {
-      this.model = sessionManager;
+      this.model = users;
     }
     createRepository = async (data) => {
       try {
+        data = new UsersDTO(data)
         const one = await this.model.create(data);
         return one;
       } catch (error) {
@@ -39,15 +41,15 @@ class SessionsRepository {
     };
     readByEmailRepository = async (email) => {
       try {
-         const one = await this.model.readByEmail( {email} );
+         const one = await this.model.readByEmail( email );
          return one;
       } catch (error) {
          throw error;
       }
    }
-    updateRepository = async (id, data) => {
+    updateRepository = async (uid, data) => {
       try {
-        const one = await this.model.update(id, data);
+        const one = await this.model.update(uid, data);
         return one;
       } catch (error) {
         throw error;
@@ -63,5 +65,5 @@ class SessionsRepository {
     };
   }
   
-const sessionsRepository = new SessionsRepository();
+const sessionsRepository = new SessionsRepository(users);
 export default sessionsRepository;

@@ -6,7 +6,6 @@ import usersManager from "../data/mongo/UsersManager.mongo.js";
 import { createHash, verifyHash } from "../utils/hash.util.js";
 import { createToken } from "../utils/token.util.js";
 import usersRepository from "../repositories/users.rep.js";
-import UsersDTO from "../dto/users.dto.js";
 import sendEmail from "../utils/mailing.util.js";
 import CustomError from "../utils/errors/CustomError.js";
 import errors from "../utils/errors/errors.js";
@@ -14,38 +13,33 @@ import errors from "../utils/errors/errors.js";
 passport.use(
    "register",
    new LocalStrategy(
-      { passReqToCallback: true, usernameField: "email" },
-      async (req, email, password, done) => {
-         try {
-            if (!email || !password) {
-               const error = new CustomError(errors.invalid);
-               return done(error);
-            }
-            const one = await usersRepository.readByEmailRepository(email);
-            if (one) {
-               const error = new CustomError(errors.auth)
-               return done(error);
-            }
-            const data = new UsersDTO(req.body);
-            const user = await usersRepository.createRepository(data);
-            // const hashPassword = createHash(password);
-            // console.log("Hashed Password:", hashPassword);
-            // req.body.password = hashPassword;
-
-            await sendEmail({
-               to: email,
-               email: user.email,
-               code: user.verifyCode,
-            });
-            return done(null, user);
-         } catch (error) {
-            return done(error);
+     { passReqToCallback: true, usernameField: "email" },
+     async (req, email, password, done) => {
+       try {
+         let user = await usersRepository.readByEmailRepository(email);
+         if (user) {
+           const error = CustomError.new(errors.invalid)
+           return done(error);
          }
-      }
+         //1° el dto necesita las propiedades de verificacion
+         user = await usersRepository.createRepository(req.body);
+         //2° una vez que el usuario se creó
+         //la estrategia debe enviar un correo electronico
+         //con un codigo aleatorio para la verificacion del usuario
+         await sendEmail({
+            to: email,
+            email: user.email,
+            code: user.verifyCode,
+         });
+         return done(null, user);
+       } catch (error) {
+         return done(error);
+       }
+     }
    )
-);
+ );
 
-passport.use(
+ passport.use(
    "login",
    new LocalStrategy(
       { passReqToCallback: true, usernameField: "email" },
@@ -53,18 +47,14 @@ passport.use(
          try {
             const one = await usersRepository.readByEmailRepository(email);
             if (!one) {
-               const error = new CustomError(errors.invalid);
+               const error =  CustomError.new(errors.invalid);
                return done(error);
             }
             const verifyPass = verifyHash(password, one.password);
             const verifyAccount = one.verify;
-            if (!verifyPass || !verifyAccount) {
-               // req.session.email = email;
-               // req.session.password = password;
-               // req.session.online = true;
-               // req.session.role = one.role;
-               // req.session.photo = one.photo;
-               // req.session.user_id = one._id;
+            console.log(verifyPass);
+            console.log(verifyAccount);
+            if (verifyPass && verifyAccount) {
                const user = {
                   email,
                   role: one.role,
@@ -76,7 +66,7 @@ passport.use(
                user.token = token;
                return done(null, user);
             }
-            const error = new CustomError(errors.invalid);
+            const error = CustomError.new(errors.invalid);
             return done(error);
          } catch (error) {
             return done(error);
@@ -84,6 +74,58 @@ passport.use(
       }
    )
 );
+
+passport.use(
+   'reset-password',
+   new LocalStrategy(
+     { passReqToCallback: true, usernameField: 'email' },
+     async (req, email, password, done) => {
+       try {
+         // Verificar si el usuario existe
+         let user = await usersRepository.readByEmailRepository(email);
+         if (!user) {
+           const error = CustomError.new(errors.notFound);
+           return done(error);
+         }
+ 
+         // Generar un código de verificación y enviarlo por correo
+         
+ 
+         await sendEmail({
+           to: email,
+           subject: 'Restablecimiento de contraseña',
+           body: `Tu código para restablecer la contraseña es: ${user.resetPasswordToken}`
+         });
+ 
+         return done(null, user);
+       } catch (error) {
+         return done(error);
+       }
+     }
+   )
+ );
+ passport.use(
+   'new-password',
+   new LocalStrategy(
+     { passReqToCallback: true, usernameField: 'email' },
+     async (req, email, password, done) => {
+       try {
+         // Verificar si el usuario existe
+         let user = await usersRepository.readByEmailRepository(email);
+         if (!user) {
+           const error = CustomError.new(errors.notFound);
+           return done(error);
+         }
+
+         user = await usersRepository.updateRepository(req.body)
+ 
+         return done(null, user);
+       } catch (error) {
+         return done(error);
+       }
+     }
+   )
+ );
 
 passport.use(
    "google",

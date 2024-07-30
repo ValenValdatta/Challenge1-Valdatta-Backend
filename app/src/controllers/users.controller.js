@@ -16,7 +16,7 @@ class UsersController {
    async read(req, res, next) {
       try {
          const email = req.user.email;
-         const all = await readService( email );
+         const all = await readService({ email });
          if (all.length > 0) {
             return res.response200(all);
          } else {

@@ -5,7 +5,7 @@ import { read, paginate, readOne, create, update, destroy } from "../../controll
 
 class UsersRouter extends CustomRouter {
    init() {
-      this.read("/", ["PUBLIC"], read);
+      this.read("/", ["USER"], read);
       this.read("/paginate", ["PUBLIC"], paginate);
       this.read("/:uid", ["PUBLIC"], readOne);
       this.create("/", ["PUBLIC"], uploader.single("photo"), isPhoto, create);

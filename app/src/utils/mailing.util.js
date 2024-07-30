@@ -20,7 +20,7 @@ async function sendEmail(data) {
          subject: `USER ${data.email.toUpperCase()} REGISTERED!`,
          html: `
                 <h1 style="color: blue"> Bienvenido a Kuro World! </h1>
-                <p>VERIFY CODE para tu papi: ${data.code}</p>
+                <p>VERIFY CODE: ${data.code}</p>
             `,
       });
    } catch (error) {

@@ -1,2 +1,244 @@
 [33mERROR[39m: GET / 401 - 21:36:20 - Bad Auth from policies
 [33mERROR[39m: GET / 401 - 21:36:29 - Bad Auth from policies
+[33mERROR[39m: GET / 401 - 12:46:35 - Bad Auth from policies
+[33mERROR[39m: GET / 401 - 12:46:39 - Bad Auth from policies
+[33mERROR[39m: GET / 401 - 20:48:23 - Bad Auth from policies
+[33mERROR[39m: GET / 401 - 20:48:43 - Bad Auth from policies
+[33mERROR[39m: GET / 401 - 20:59:21 - Bad Auth from policies
+[33mERROR[39m: GET / 401 - 20:59:24 - Bad Auth from policies
+[33mERROR[39m: POST - /api/sessions/login - 20:59:30 - Invalid credentials
+[33mERROR[39m: GET / 401 - 20:59:39 - Bad Auth from policies
+[33mERROR[39m: GET / 401 - 21:01:25 - Bad Auth from policies
+[33mERROR[39m: GET / 401 - 21:04:04 - Bad Auth from policies
+[33mERROR[39m: GET / 401 - 21:04:49 - Bad Auth from policies
+[33mERROR[39m: GET / 401 - 21:04:52 - Bad Auth from policies
+[33mERROR[39m: POST - /api/sessions/register - 21:04:58 - undefined
+[33mERROR[39m: GET / 401 - 21:05:47 - Bad Auth from policies
+[33mERROR[39m: POST - /api/sessions/verify - 21:05:58 - Cannot read properties of undefined (reading 'readByEmail')
+[33mERROR[39m: POST - /api/sessions/verify - 21:12:28 - Cannot read properties of undefined (reading 'readByEmail')
+[33mERROR[39m: POST - /api/sessions/verify - 21:16:47 - Cannot read properties of undefined (reading 'readByEmail')
+[33mERROR[39m: GET / 401 - 21:16:58 - Bad Auth from policies
+[33mERROR[39m: POST - /api/sessions/verify - 21:17:06 - Cannot read properties of undefined (reading 'readByEmail')
+[33mERROR[39m: POST - /api/sessions/verify - 21:17:48 - Cannot read properties of undefined (reading 'readByEmail')
+[33mERROR[39m: POST - /api/sessions/verify - 21:18:11 - Cannot read properties of undefined (reading 'readByEmail')
+[33mERROR[39m: POST - /api/sessions/verify - 21:21:01 - Cannot read properties of undefined (reading 'readByEmail')
+[33mERROR[39m: GET / 401 - 21:21:06 - Bad Auth from policies
+[33mERROR[39m: POST - /api/sessions/verify - 21:21:15 - Cannot read properties of undefined (reading 'readByEmail')
+[33mERROR[39m: POST - /api/sessions/verify - 21:26:16 - Cannot read properties of undefined (reading 'readByEmail')
+[33mERROR[39m: GET / 401 - 21:26:19 - Bad Auth from policies
+[33mERROR[39m: POST - /api/sessions/verify - 21:26:23 - Cannot read properties of undefined (reading 'readByEmail')
+[33mERROR[39m: POST - /api/sessions/verify - 21:36:19 - Cannot read properties of undefined (reading 'readByEmail')
+[33mERROR[39m: POST - /api/sessions/verify - 21:43:26 - Cannot read properties of undefined (reading 'readByEmail')
+[33mERROR[39m: GET / 401 - 22:56:29 - Bad Auth from policies
+[33mERROR[39m: POST - /api/sessions/verify - 22:56:45 - Cannot read properties of undefined (reading 'readByEmail')
+[33mERROR[39m: POST - /api/sessions/verify - 23:03:24 - Cannot read properties of undefined (reading 'readByEmail')
+[33mERROR[39m: POST - /api/sessions/verify - 23:11:30 - Cast to string failed for value "{ email: 'valentin.valdatta.94@gmail.com' }" (type Object) at path "email" for model "users"
+[33mERROR[39m: POST - /api/sessions/verify - 23:11:48 - Cast to string failed for value "{ email: 'valentin.valdatta.94@gmail.com' }" (type Object) at path "email" for model "users"
+[33mERROR[39m: POST - /api/sessions/verify - 23:13:25 - Cast to string failed for value "{ email: 'valentin.valdatta.94@gmail.com' }" (type Object) at path "email" for model "users"
+[33mERROR[39m: POST - /api/sessions/verify - 23:13:31 - Cast to string failed for value "{ email: 'valentin.valdatta.94@gmail.com' }" (type Object) at path "email" for model "users"
+[33mERROR[39m: POST - /api/sessions/verify - 23:14:29 - Cast to string failed for value "{ email: { email: 'valentin.valdatta.94@gmail.com' } }" (type Object) at path "email" for model "users"
+[33mERROR[39m: POST - /api/sessions/verify - 23:17:00 - Cast to string failed for value "{ email: { email: 'valentin.valdatta.94@gmail.com' } }" (type Object) at path "email" for model "users"
+[33mERROR[39m: GET / 401 - 23:17:04 - Bad Auth from policies
+[33mERROR[39m: POST - /api/sessions/verify - 23:17:10 - Cast to string failed for value "{ email: { email: 'valentin.valdatta.94@gmail.com' } }" (type Object) at path "email" for model "users"
+[33mERROR[39m: POST - /api/sessions/verify - 23:17:17 - Cast to string failed for value "{ email: { email: 'valentin.valdatta.94@gmail.com' } }" (type Object) at path "email" for model "users"
+[33mERROR[39m: POST - /api/sessions/verify - 23:18:15 - Cast to string failed for value "{ email: 'valentin.valdatta.94@gmail.com' }" (type Object) at path "email" for model "users"
+[33mERROR[39m: GET / 401 - 23:18:20 - Bad Auth from policies
+[33mERROR[39m: POST - /api/sessions/verify - 23:18:26 - Cast to string failed for value "{ email: 'valentin.valdatta.94@gmail.com' }" (type Object) at path "email" for model "users"
+[33mERROR[39m: GET / 401 - 23:24:26 - Bad Auth from policies
+[33mERROR[39m: GET / 401 - 23:29:59 - Bad Auth from policies
+[33mERROR[39m: GET / 401 - 23:30:12 - Bad Auth from policies
+[33mERROR[39m: GET / 401 - 23:30:30 - Bad Auth from policies
+[33mERROR[39m: GET / 401 - 23:30:35 - Bad Auth from policies
+[33mERROR[39m: POST - /api/sessions/login - 23:30:42 - undefined
+[33mERROR[39m: POST - /api/sessions/login - 23:30:46 - undefined
+[33mERROR[39m: POST - /api/sessions/login - 23:30:53 - undefined
+[33mERROR[39m: GET / 401 - 23:35:21 - Bad Auth from policies
+[33mERROR[39m: POST - /api/sessions/login - 23:35:26 - usersRepository.readByEmail is not a function
+[33mERROR[39m: POST - /api/sessions/login - 23:35:32 - usersRepository.readByEmail is not a function
+[33mERROR[39m: POST - /api/sessions/login - 23:35:45 - usersRepository.readByEmail is not a function
+[33mERROR[39m: GET / 400 - 23:36:30 - jwt malformed
+[33mERROR[39m: GET / 400 - 23:40:24 - jwt malformed
+[33mERROR[39m: GET / 400 - 23:40:31 - jwt malformed
+[33mERROR[39m: GET / 400 - 23:43:16 - jwt malformed
+[33mERROR[39m: GET / 400 - 23:43:21 - jwt malformed
+[33mERROR[39m: GET / 400 - 23:46:19 - jwt malformed
+[33mERROR[39m: GET / 400 - 23:46:23 - jwt malformed
+[33mERROR[39m: GET / 400 - 23:52:31 - jwt malformed
+[33mERROR[39m: GET / 400 - 23:52:39 - jwt malformed
+[33mERROR[39m: GET / 400 - 23:52:52 - jwt malformed
+[33mERROR[39m: GET / 400 - 23:53:09 - jwt malformed
+[33mERROR[39m: GET / 400 - 23:53:42 - jwt malformed
+[33mERROR[39m: GET / 400 - 00:01:00 - jwt malformed
+[33mERROR[39m: POST - /api/sessions/login - 00:01:04 - Invalid credentials
+[33mERROR[39m: POST - /api/sessions/login - 00:01:13 - Invalid credentials
+[33mERROR[39m: GET / 400 - 00:01:40 - jwt malformed
+[33mERROR[39m: GET / 400 - 00:01:44 - jwt malformed
+[33mERROR[39m: GET / 400 - 00:01:50 - jwt malformed
+[33mERROR[39m: GET / 400 - 00:18:02 - jwt malformed
+[33mERROR[39m: GET / 400 - 00:18:08 - jwt malformed
+[33mERROR[39m: GET / 400 - 00:18:27 - jwt malformed
+[33mERROR[39m: GET / 400 - 00:18:37 - jwt malformed
+[33mERROR[39m: GET / 400 - 00:18:47 - jwt malformed
+[33mERROR[39m: GET / 400 - 00:23:32 - jwt malformed
+[33mERROR[39m: GET / 400 - 00:23:43 - jwt malformed
+[33mERROR[39m: GET / 400 - 00:25:26 - jwt malformed
+[33mERROR[39m: GET / 400 - 00:25:32 - jwt malformed
+[33mERROR[39m: GET / 400 - 00:25:41 - jwt malformed
+[33mERROR[39m: GET / 400 - 00:25:53 - jwt malformed
+[33mERROR[39m: GET / 400 - 00:25:56 - jwt malformed
+[33mERROR[39m: GET / 400 - 00:26:02 - jwt malformed
+[33mERROR[39m: POST - /api/sessions/register - 14:58:04 - "password" is required
+[33mERROR[39m: POST - /api/users - 14:59:17 - data and salt arguments required
+[33mERROR[39m: POST / 401 - 15:01:23 - Bad Auth from policies
+[33mERROR[39m: GET / 400 - 11:05:50 - jwt malformed
+[33mERROR[39m: GET / 400 - 11:05:53 - jwt malformed
+[33mERROR[39m: GET / 400 - 11:11:35 - jwt malformed
+[33mERROR[39m: GET / 400 - 11:11:38 - jwt malformed
+[33mERROR[39m: GET / 400 - 11:11:45 - jwt malformed
+[33mERROR[39m: GET / 400 - 11:20:51 - jwt malformed
+[33mERROR[39m: GET / 400 - 11:22:03 - jwt malformed
+[33mERROR[39m: GET / 400 - 11:30:34 - jwt malformed
+[33mERROR[39m: GET / 400 - 11:30:45 - jwt malformed
+[33mERROR[39m: GET / 400 - 11:57:19 - jwt malformed
+[33mERROR[39m: GET / 400 - 11:57:23 - jwt malformed
+[33mERROR[39m: GET / 400 - 11:57:26 - jwt malformed
+[33mERROR[39m: GET / 400 - 11:57:32 - jwt malformed
+[33mERROR[39m: GET / 400 - 12:07:35 - jwt malformed
+[33mERROR[39m: GET / 400 - 12:07:39 - jwt malformed
+[33mERROR[39m: GET / 400 - 12:07:48 - jwt malformed
+[33mERROR[39m: GET / 400 - 12:08:26 - jwt malformed
+[33mERROR[39m: GET / 401 - 12:08:31 - Bad Auth from policies
+[33mERROR[39m: GET / 401 - 12:08:37 - Bad Auth from policies
+[33mERROR[39m: GET / 401 - 12:08:54 - Bad Auth from policies
+[33mERROR[39m: GET / 401 - 12:09:00 - Bad Auth from policies
+[33mERROR[39m: GET / 401 - 12:09:04 - Bad Auth from policies
+[33mERROR[39m: GET / 401 - 12:09:23 - Bad Auth from policies
+[33mERROR[39m: GET / 401 - 12:09:38 - Bad Auth from policies
+[33mERROR[39m: GET / 401 - 12:10:10 - Bad Auth from policies
+[33mERROR[39m: GET / 401 - 12:10:21 - Bad Auth from policies
+[33mERROR[39m: GET / 400 - 12:10:27 - jwt malformed
+[33mERROR[39m: GET / 400 - 12:12:51 - jwt malformed
+[33mERROR[39m: GET / 400 - 12:12:57 - jwt malformed
+[33mERROR[39m: GET / 400 - 12:13:03 - jwt malformed
+[33mERROR[39m: GET / 400 - 12:22:04 - jwt malformed
+[33mERROR[39m: GET / 400 - 12:22:36 - jwt malformed
+[33mERROR[39m: GET / 400 - 12:24:38 - jwt malformed
+[33mERROR[39m: GET / 400 - 12:24:42 - jwt malformed
+[33mERROR[39m: GET / 400 - 12:24:46 - jwt malformed
+[33mERROR[39m: POST - /api/sessions/login - 12:24:51 - user is not defined
+[33mERROR[39m: POST - /api/sessions/login - 12:25:14 - Cannot set properties of undefined (setting 'token')
+[33mERROR[39m: GET / 400 - 12:25:35 - jwt malformed
+[33mERROR[39m: GET / 400 - 17:01:54 - jwt malformed
+[33mERROR[39m: GET / 400 - 17:01:58 - jwt malformed
+[33mERROR[39m: GET / 400 - 17:14:59 - jwt malformed
+[33mERROR[39m: GET / 400 - 17:23:44 - jwt malformed
+[33mERROR[39m: GET / 400 - 17:23:49 - jwt malformed
+[33mERROR[39m: GET / 400 - 17:23:55 - jwt malformed
+[33mERROR[39m: GET / 400 - 17:24:33 - jwt malformed
+[33mERROR[39m: GET / 400 - 17:24:37 - jwt malformed
+[33mERROR[39m: GET / 400 - 17:24:42 - jwt malformed
+[33mERROR[39m: GET / 400 - 17:25:20 - jwt malformed
+[33mERROR[39m: GET / 400 - 17:25:23 - jwt malformed
+[33mERROR[39m: GET / 401 - 17:26:43 - Bad Auth from policies
+[33mERROR[39m: GET / 401 - 17:26:49 - Bad Auth from policies
+[33mERROR[39m: GET / 400 - 17:26:56 - jwt malformed
+[33mERROR[39m: GET / 400 - 17:27:27 - jwt malformed
+[33mERROR[39m: GET / 401 - 17:27:38 - Bad Auth from policies
+[33mERROR[39m: GET / 401 - 17:27:44 - Bad Auth from policies
+[33mERROR[39m: GET / 401 - 17:28:15 - Bad Auth from policies
+[33mERROR[39m: GET / 401 - 17:28:18 - Bad Auth from policies
+[33mERROR[39m: POST - /api/sessions/login - 17:28:21 - undefined
+[33mERROR[39m: POST - /api/sessions/login - 17:28:27 - undefined
+[33mERROR[39m: GET / 401 - 17:37:02 - Bad Auth from policies
+[33mERROR[39m: GET / 401 - 17:37:04 - Bad Auth from policies
+[33mERROR[39m: POST - /api/sessions/login - 17:37:10 - undefined
+[33mERROR[39m: POST - /api/sessions/login - 17:37:14 - undefined
+[33mERROR[39m: POST - /api/sessions/login - 17:40:37 - undefined
+[33mERROR[39m: POST - /api/sessions/login - 17:45:19 - undefined
+[33mERROR[39m: GET / 401 - 17:53:31 - Bad Auth from policies
+[33mERROR[39m: POST - /api/sessions/register - 17:53:37 - la contraseña debe ser alfanumerica con min/MAY
+[33mERROR[39m: POST - /api/sessions/register - 17:53:40 - la contraseña debe ser alfanumerica con min/MAY
+[33mERROR[39m: POST - /api/sessions/register - 17:53:46 - la contraseña debe ser alfanumerica con min/MAY
+[33mERROR[39m: POST - /api/sessions/register - 17:53:54 - la contraseña debe ser alfanumerica con min/MAY
+[33mERROR[39m: POST - /api/sessions/register - 17:54:01 - la contraseña debe ser alfanumerica con min/MAY
+[33mERROR[39m: POST - /api/sessions/register - 17:54:07 - la contraseña debe ser alfanumerica con min/MAY
+[33mERROR[39m: GET / 401 - 17:55:16 - Bad Auth from policies
+[33mERROR[39m: GET / 401 - 17:55:42 - Bad Auth from policies
+[33mERROR[39m: GET / 401 - 17:55:58 - Bad Auth from policies
+[33mERROR[39m: POST - /api/sessions/login - 17:56:03 - undefined
+[33mERROR[39m: POST - /api/sessions/login - 20:04:46 - undefined
+[33mERROR[39m: POST - /api/sessions/login - 20:10:00 - undefined
+[33mERROR[39m: GET / 401 - 20:12:29 - Bad Auth from policies
+[33mERROR[39m: GET / 401 - 20:12:45 - Bad Auth from policies
+[33mERROR[39m: GET / 401 - 20:13:01 - Bad Auth from policies
+[33mERROR[39m: GET / 401 - 20:13:03 - Bad Auth from policies
+[33mERROR[39m: POST - /api/sessions/login - 20:13:07 - undefined
+[33mERROR[39m: POST - /api/sessions/login - 20:22:30 - undefined
+[33mERROR[39m: GET / 401 - 20:29:18 - Bad Auth from policies
+[33mERROR[39m: GET / 401 - 20:29:24 - Bad Auth from policies
+[33mERROR[39m: GET / 401 - 20:29:58 - Bad Auth from policies
+[33mERROR[39m: GET / 401 - 20:30:05 - Bad Auth from policies
+[33mERROR[39m: GET / 401 - 20:30:24 - Bad Auth from policies
+[33mERROR[39m: POST - /api/sessions/login - 20:30:28 - undefined
+[33mERROR[39m: GET / 401 - 20:46:59 - Bad Auth from policies
+[33mERROR[39m: POST - /api/sessions/login - 20:47:02 - undefined
+[33mERROR[39m: POST - /api/sessions/login - 20:47:25 - undefined
+[33mERROR[39m: POST - /api/sessions/login - 20:49:10 - undefined
+[33mERROR[39m: GET / 401 - 09:42:35 - Bad Auth from policies
+[33mERROR[39m: GET / 401 - 09:42:49 - Bad Auth from policies
+[33mERROR[39m: POST /verify 400 - 09:43:32 - Invalid credentials!
+[33mERROR[39m: GET / 401 - 09:43:38 - Bad Auth from policies
+[33mERROR[39m: POST - /api/sessions/login - 09:43:42 - undefined
+[33mERROR[39m: POST - /api/sessions/login - 09:44:41 - undefined
+[33mERROR[39m: POST - /api/sessions/login - 09:45:50 - Invalid credentials
+[33mERROR[39m: GET / 401 - 09:45:59 - Bad Auth from policies
+[33mERROR[39m: POST - /api/sessions/login - 09:46:07 - Invalid credentials
+[33mERROR[39m: GET / 401 - 09:51:18 - Bad Auth from policies
+[33mERROR[39m: POST - /api/sessions/register - 09:51:27 - data is not defined
+[33mERROR[39m: POST - /api/sessions/register - 09:51:39 - data is not defined
+[33mERROR[39m: POST - /api/sessions/register - 09:52:04 - Cannot read properties of null (reading 'email')
+[33mERROR[39m: POST - /api/sessions/register - 09:52:11 - Cannot read properties of null (reading 'email')
+[33mERROR[39m: GET / 401 - 09:52:20 - Bad Auth from policies
+[33mERROR[39m: POST - /api/sessions/register - 09:52:32 - Cannot read properties of null (reading 'email')
+[33mERROR[39m: GET / 401 - 09:56:44 - Bad Auth from policies
+[33mERROR[39m: GET / 401 - 09:57:06 - Bad Auth from policies
+[33mERROR[39m: GET / 401 - 09:57:22 - Bad Auth from policies
+[33mERROR[39m: GET / 401 - 09:57:39 - Bad Auth from policies
+[33mERROR[39m: GET / 401 - 09:57:42 - Bad Auth from policies
+[33mERROR[39m: POST - /api/sessions/login - 09:57:47 - Invalid credentials
+[33mERROR[39m: GET / 401 - 10:35:50 - Bad Auth from policies
+[33mERROR[39m: GET / 401 - 10:35:57 - Bad Auth from policies
+[33mERROR[39m: GET / 401 - 10:36:09 - Bad Auth from policies
+[33mERROR[39m: GET / 401 - 10:37:19 - Bad Auth from policies
+[33mERROR[39m: GET / 401 - 10:37:27 - Bad Auth from policies
+[33mERROR[39m: GET - /api/carts - 10:37:37 - Not found!
+[33mERROR[39m: GET - /api/users - 10:37:43 - Cannot read properties of undefined (reading 'email')
+[33mERROR[39m: GET - /api/users - 10:42:45 - Cannot read properties of undefined (reading 'email')
+[33mERROR[39m: GET - /api/users - 10:46:20 - Cannot read properties of undefined (reading 'email')
+[33mERROR[39m: GET - /api/users - 10:47:03 - Cannot read properties of undefined (reading 'email')
+[33mERROR[39m: GET - /api/users - 10:57:33 - Cannot read properties of undefined (reading 'email')
+[33mERROR[39m: GET - /api/users - 11:22:50 - Parameter "filter" to find() must be an object, got "valentin.valdatta.94@gmail.com" (type string)
+[33mERROR[39m: GET - /api/users - 11:24:17 - Parameter "filter" to find() must be an object, got "valentin.valdatta.94@gmail.com" (type string)
+[33mERROR[39m: GET - /api/users - 11:28:51 - Parameter "filter" to find() must be an object, got "valentin.valdatta.94@gmail.com" (type string)
+[33mERROR[39m: GET - /api/users - 11:28:55 - Parameter "filter" to find() must be an object, got "valentin.valdatta.94@gmail.com" (type string)
+[33mERROR[39m: GET - /api/carts - 11:30:03 - Not found!
+[33mERROR[39m: GET - /api/carts - 11:39:31 - Not found!
+[33mERROR[39m: GET / 401 - 11:39:58 - Bad Auth from policies
+[33mERROR[39m: GET / 401 - 12:25:05 - Bad Auth from policies
+[33mERROR[39m: GET / 401 - 12:25:07 - Bad Auth from policies
+[33mERROR[39m: GET / 401 - 12:25:11 - Bad Auth from policies
+[33mERROR[39m: GET / 401 - 12:25:32 - Bad Auth from policies
+[33mERROR[39m: GET / 401 - 16:24:10 - Bad Auth from policies
+[33mERROR[39m: GET / 401 - 16:24:12 - Bad Auth from policies
+[33mERROR[39m: GET / 401 - 16:24:22 - Bad Auth from policies
+[33mERROR[39m: GET / 401 - 16:24:24 - Bad Auth from policies
+[33mERROR[39m: GET / 401 - 12:45:03 - Bad Auth from policies
+[33mERROR[39m: GET / 401 - 12:53:41 - Bad Auth from policies
+[33mERROR[39m: GET / 401 - 12:53:42 - Bad Auth from policies
+[33mERROR[39m: GET / 401 - 13:18:39 - Bad Auth from policies
+[33mERROR[39m: GET / 401 - 13:18:41 - Bad Auth from policies
+[33mERROR[39m: GET / 401 - 13:18:42 - Bad Auth from policies
+[33mERROR[39m: GET / 401 - 10:17:11 - Bad Auth from policies
+[33mERROR[39m: GET / 401 - 10:17:16 - Bad Auth from policies
+[33mERROR[39m: GET - /api/carts - 10:17:51 - Not found!
+[33mERROR[39m: GET / 400 - 20:44:36 - jwt expired

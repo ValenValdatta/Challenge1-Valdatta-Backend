@@ -1,18 +1,17 @@
-import { readByEmailService } from "../services/sessions.service.js";
+import { readByEmailService, updateService } from "../services/sessions.service.js";
 
-class SessionsController {
-   async register(req, res, next) {
+   const register = async (req, res, next) => {
       try {
          // return res.json({
          //    statusCode: 201,
          //    message: "Registered!",
          // });
-         return res.response201();
+         return res.response201("User registered!");
       } catch (error) {
          return next(error);
       }
    }
-   async login(req, res, next) {
+   const login = async (req, res, next) => {
       try {
          return res
             .cookie("token", req.user.token, { signedCookie: true })
@@ -25,18 +24,40 @@ class SessionsController {
          return next(error);
       }
    }
-   async verifyCode(req, res, next) {
+   const resetPassword = async (req, res, next) => {
+      try {
+         return res.response201("Code sent!");
+      } catch (error) {
+         return next(error);
+      }
+   }
+   const verifyCode = async (req, res, next) => {
       const { email, code } = req.body;
       const one = await readByEmailService(email);
       const verify = code === one.verifyCode;
+      console.log(one);
+      console.log(code);
       if (verify) {
-         await updateService(one._id, { verify });
-         return res.message200("verified user");
+        await updateService(one._id, { verify });
+        return res.message200("Verified User!");
       } else {
-         return res.error400("not verified");
+        return res.error400("Invalid credentials!");
       }
-   }
-   async profile(req, res, next) {
+    };
+    const verifyPassCode = async (req, res, next) => {
+      const { email, code } = req.body;
+      const one = await readByEmailService(email);
+      const verify = passCode === one.verifyPassCode;
+      console.log(one);
+      console.log(code);
+      if (verify) {
+        await updateService(one._id, { verify });
+        return res.message200("Verified Password!");
+      } else {
+        return res.error400("Invalid credentials!");
+      }
+    };
+   const profile = async (req, res, next) => {
       try {
          console.log(req.user);
          // if (req.session.online) {
@@ -57,7 +78,7 @@ class SessionsController {
          return next(error);
       }
    }
-   signout(req, res, next) {
+   const signout = async (req, res, next) => {
       try {
          if (req.cookies.token) {
             res.clearCookie("token");
@@ -73,7 +94,7 @@ class SessionsController {
          return next(error);
       }
    }
-   google(req, res, next) {
+   const google = async (req, res, next) => {
       try {
          return res.json({
             statusCode: 200,
@@ -83,8 +104,7 @@ class SessionsController {
          return next(error);
       }
    }
-}
 
-const sessionController = new SessionsController();
-const { register, login, verifyCode, profile, signout, google } = sessionController;
-export { register, login, verifyCode, profile, signout, google };
+
+
+export { register, login, resetPassword, verifyCode, verifyPassCode, profile, signout, google };
