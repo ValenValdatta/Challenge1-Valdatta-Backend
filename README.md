@@ -1,8 +1,8 @@
-Lauti aca te dejo la entrega de logger, perdon por estar tan atrasado.
+Lauti aca te dejo la entrega de swagger.
 
-Estoy tratando de arreglarlo pero el codigo me falla por todos lados y vengo medio a los ponchazos.
+No pude hacer que se me vieran las rutas en swagger no se si tengo algun problema de identacion o que, no puedo encontrar el error
 
-Te deje unos mensajes por discord espero lo puedas ver.
+
 
 
 
