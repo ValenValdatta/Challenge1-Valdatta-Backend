@@ -242,3 +242,35 @@
 [33mERROR[39m: GET / 401 - 10:17:16 - Bad Auth from policies
 [33mERROR[39m: GET - /api/carts - 10:17:51 - Not found!
 [33mERROR[39m: GET / 400 - 20:44:36 - jwt expired
+[33mERROR[39m: POST - /api/sessions/register - 17:32:27 - el email no puede ser una cadena de texto vacía,la contraseña no puede ser una cadena de texto vacía
+[33mERROR[39m: POST - /api/sessions/register - 17:34:33 - Cannot read properties of undefined (reading 'readByEmail')
+[33mERROR[39m: POST - /api/sessions/login - 17:34:33 - Cannot read properties of undefined (reading 'readByEmail')
+[33mERROR[39m: POST - /api/sessions/register - 17:45:59 - Cannot read properties of undefined (reading 'readByEmail')
+[33mERROR[39m: POST - /api/sessions/login - 17:46:00 - Cannot read properties of undefined (reading 'readByEmail')
+[33mERROR[39m: POST - /api/sessions/register - 17:48:00 - Cannot read properties of undefined (reading 'readByEmail')
+[33mERROR[39m: POST - /api/sessions/login - 17:48:00 - Cannot read properties of undefined (reading 'readByEmail')
+[33mERROR[39m: GET - /api/products - 17:48:20 - Cannot read properties of undefined (reading 'read')
+[33mERROR[39m: GET / 401 - 17:48:20 - Bad Auth from policies
+[33mERROR[39m: GET / 401 - 17:48:22 - Bad Auth from policies
+[33mERROR[39m: POST - /api/sessions/register - 17:48:37 - Cannot read properties of undefined (reading 'readByEmail')
+[33mERROR[39m: GET / 401 - 17:51:37 - Bad Auth from policies
+[33mERROR[39m: POST - /api/sessions/login - 17:52:11 - Invalid credentials
+[33mERROR[39m: POST - /api/sessions/login - 17:53:54 - Invalid credentials
+[33mERROR[39m: POST - /api/sessions/login - 17:54:45 - Invalid credentials
+[33mERROR[39m: POST - /api/sessions/register - 17:56:13 - Cast to string failed for value "{ email: 'email@email.com' }" (type Object) at path "email" for model "users"
+[33mERROR[39m: POST - /api/sessions/login - 17:56:14 - Cast to string failed for value "{ email: 'email@email.com' }" (type Object) at path "email" for model "users"
+[33mERROR[39m: POST - /api/sessions/login - 17:57:06 - Invalid credentials
+[33mERROR[39m: GET - /api/products - 13:28:43 - Cannot read properties of undefined (reading 'read')
+[33mERROR[39m: GET / 401 - 13:28:44 - Bad Auth from policies
+[33mERROR[39m: GET / 401 - 13:28:48 - Bad Auth from policies
+[33mERROR[39m: GET / 401 - 13:29:17 - Bad Auth from policies
+[33mERROR[39m: GET / 401 - 13:29:39 - Bad Auth from policies
+[33mERROR[39m: GET - /api/products - 13:29:45 - Cannot read properties of undefined (reading 'read')
+[33mERROR[39m: POST - /api/sessions/login - 13:30:13 - Invalid credentials
+[33mERROR[39m: POST - /api/sessions/login - 13:35:17 - Invalid credentials
+[33mERROR[39m: POST - /api/sessions/register - 13:50:27 - Invalid credentials
+[33mERROR[39m: POST - /api/sessions/register - 13:53:20 - Invalid credentials
+[33mERROR[39m: POST - /api/sessions/register - 13:54:21 - Invalid credentials
+[33mERROR[39m: POST - /api/sessions/register - 13:55:14 - Invalid credentials
+[33mERROR[39m: POST - /api/sessions/register - 14:03:49 - Invalid credentials
+[33mERROR[39m: POST - /api/sessions/register - 14:04:17 - Invalid credentials

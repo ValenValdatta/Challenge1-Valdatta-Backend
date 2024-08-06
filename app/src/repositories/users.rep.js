@@ -1,6 +1,6 @@
 import dao from "../data/dao.factory.js";
 import UsersDTO from "../dto/users.dto.js";
-const { users } = dao;
+const { usersManager } = dao;
 
 class UsersRepository {
     constructor(manager) {
@@ -65,5 +65,5 @@ class UsersRepository {
     };
   }
   
-const usersRepository = new UsersRepository(users);
+const usersRepository = new UsersRepository(usersManager);
 export default usersRepository;
