@@ -274,3 +274,63 @@
 [33mERROR[39m: POST - /api/sessions/register - 13:55:14 - Invalid credentials
 [33mERROR[39m: POST - /api/sessions/register - 14:03:49 - Invalid credentials
 [33mERROR[39m: POST - /api/sessions/register - 14:04:17 - Invalid credentials
+[33mERROR[39m: POST - /api/sessions/register - 14:05:15 - Invalid credentials
+[33mERROR[39m: POST / 401 - 15:00:06 - Bad Auth from policies
+[33mERROR[39m: POST - /api/products - 15:00:49 - Forbidden
+[33mERROR[39m: POST - /api/products - 15:05:19 - Forbidden
+[33mERROR[39m: POST - /api/sessions/register - 15:05:50 - Invalid credentials
+[33mERROR[39m: POST - /api/products - 15:05:51 - Forbidden
+[33mERROR[39m: POST - /api/products - 15:09:36 - Cannot read properties of undefined (reading 'create')
+[33mERROR[39m: POST - /api/products - 15:09:55 - Forbidden
+[33mERROR[39m: POST - /api/products - 15:10:38 - Forbidden
+[33mERROR[39m: POST - /api/products - 15:45:09 - Forbidden
+[33mERROR[39m: POST - /api/products - 16:14:44 - Forbidden
+[33mERROR[39m: DELETE /12335534rWER 401 - 16:14:44 - Bad Auth from policies
+[33mERROR[39m: GET - /api/products - 11:33:20 - Cannot read properties of undefined (reading 'read')
+[33mERROR[39m: GET / 400 - 11:33:20 - jwt expired
+[33mERROR[39m: GET - /api/products - 11:34:08 - Cannot read properties of undefined (reading 'read')
+[33mERROR[39m: GET / 400 - 11:34:08 - jwt expired
+[33mERROR[39m: GET - /api/products - 11:44:10 - Cannot read properties of undefined (reading 'read')
+[33mERROR[39m: GET / 400 - 11:44:10 - jwt expired
+[33mERROR[39m: GET - /api/products - 11:44:16 - Cannot read properties of undefined (reading 'read')
+[33mERROR[39m: GET / 400 - 11:44:16 - jwt expired
+[33mERROR[39m: GET - /api/products - 11:44:35 - Cannot read properties of undefined (reading 'read')
+[33mERROR[39m: GET / 400 - 11:44:35 - jwt expired
+[33mERROR[39m: GET - /api/products - 11:47:47 - Cannot read properties of undefined (reading 'read')
+[33mERROR[39m: GET / 400 - 11:47:47 - jwt expired
+[33mERROR[39m: GET - /api/products - 11:48:13 - Cannot read properties of undefined (reading 'read')
+[33mERROR[39m: GET / 400 - 11:48:13 - jwt expired
+[33mERROR[39m: GET / 400 - 11:48:19 - jwt expired
+[33mERROR[39m: POST - /api/sessions/login - 11:48:27 - Invalid credentials
+[33mERROR[39m: POST - /api/sessions/login - 11:48:43 - Invalid credentials
+[33mERROR[39m: GET - /api/products - 11:49:21 - Cannot read properties of undefined (reading 'read')
+[33mERROR[39m: GET / 400 - 11:49:21 - jwt expired
+[33mERROR[39m: GET - /api/products - 11:50:43 - Cannot read properties of undefined (reading 'read')
+[33mERROR[39m: GET / 401 - 11:50:43 - Bad Auth from policies
+[33mERROR[39m: GET - /api/products - 11:50:56 - Cannot read properties of undefined (reading 'read')
+[33mERROR[39m: GET / 401 - 11:50:56 - Bad Auth from policies
+[33mERROR[39m: GET / 401 - 11:51:06 - Bad Auth from policies
+[33mERROR[39m: POST - /api/sessions/login - 11:51:13 - Invalid credentials
+[33mERROR[39m: POST - /api/sessions/login - 11:51:19 - Invalid credentials
+[33mERROR[39m: POST - /api/sessions/login - 11:51:34 - Invalid credentials
+[33mERROR[39m: GET - /api/products - 11:52:08 - Cannot read properties of undefined (reading 'read')
+[33mERROR[39m: GET - /api/products - 11:52:34 - Cannot read properties of undefined (reading 'read')
+[33mERROR[39m: GET - /api/products - 16:42:50 - Cannot read properties of undefined (reading 'read')
+[33mERROR[39m: GET - /api/products - 16:43:12 - Cannot read properties of undefined (reading 'read')
+[33mERROR[39m: GET - /api/products - 16:43:20 - Cannot read properties of undefined (reading 'read')
+[33mERROR[39m: GET / 401 - 16:43:20 - Bad Auth from policies
+[33mERROR[39m: GET - /api/products - 16:43:50 - Cannot read properties of undefined (reading 'read')
+[33mERROR[39m: GET / 401 - 16:43:51 - Bad Auth from policies
+[33mERROR[39m: GET / 401 - 16:50:55 - Bad Auth from policies
+[33mERROR[39m: GET - /api/products - 16:51:05 - Cannot read properties of undefined (reading 'read')
+[33mERROR[39m: GET - /api/products - 16:55:02 - Cannot read properties of undefined (reading 'read')
+[33mERROR[39m: GET - /api/products - 16:55:26 - Cannot read properties of undefined (reading 'read')
+[33mERROR[39m: GET - /api/products - 16:55:33 - Cannot read properties of undefined (reading 'read')
+[33mERROR[39m: GET - /api/products - 16:56:05 - Cannot read properties of undefined (reading 'read')
+[33mERROR[39m: GET - /api/products - 16:56:13 - Cannot read properties of undefined (reading 'read')
+[33mERROR[39m: GET - /api/products - 17:04:05 - Cannot read properties of undefined (reading 'read')
+[33mERROR[39m: GET - /api/products - 17:05:21 - Cannot read properties of undefined (reading 'read')
+[33mERROR[39m: GET - /api/products - 17:06:06 - Cannot read properties of undefined (reading 'read')
+[33mERROR[39m: GET - /api/products - 17:06:34 - Cannot read properties of undefined (reading 'read')
+[33mERROR[39m: GET - /api/products - 17:07:20 - Cannot read properties of undefined (reading 'read')
+[33mERROR[39m: GET - /api/carts - 17:14:55 - Cannot read properties of undefined (reading 'read')

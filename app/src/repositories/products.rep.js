@@ -1,6 +1,6 @@
 import dao from "../data/dao.factory.js";
 import ProductsDTO from "../dto/products.dto.js";
-const { products } = dao;
+const { productsManager } = dao;
 
 
 class ProductsRepository {
@@ -16,9 +16,9 @@ class ProductsRepository {
         throw error;
       }
     };
-    readRepository = async (role) => {
+    readRepository = async (filter) => {
       try {
-        const all = await this.model.read(role);
+        const all = await this.model.read(filter);
         return all;
       } catch (error) {
         throw error;
@@ -58,5 +58,5 @@ class ProductsRepository {
     };
   }
   
-const productsRepository = new ProductsRepository(products);
+const productsRepository = new ProductsRepository(productsManager);
 export default productsRepository;
