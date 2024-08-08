@@ -1,8 +1,10 @@
-Hola Nao como estas, aca te dejo la entrega de auth, le agregue la autenticacion de google.
+Lauti aca te dejo la entrega de swagger.
 
-Cuando cambie lo del login con token algunos endpoint me dejaron de funcionar y no supe arreglarlos.
+No pude hacer que se me vieran las rutas en swagger no se si tengo algun problema de identacion o que, no puedo encontrar el error
 
-Cualquier cosa me avisas.
+
+
+
 
 
 

@@ -1,12 +1,19 @@
-import "dotenv/config.js";
+import enviroment from "./src/utils/env.util.js";
+import cluster from "cluster"
+import { cpus } from "os";
 import express from "express"; //IMPORTO EL MODULO DE EXPRESS
 import { createServer } from "http";
 import { Server } from "socket.io";
-import morgan from "morgan";
+// import morgan from "morgan";
 import { engine } from "express-handlebars";
 import cookieParser from "cookie-parser";
+import argsUtil from "./src/utils/args.util.js";
 import session from "express-session";
 import MongoStore from "connect-mongo";
+import cors from "cors"
+import compression from "express-compression"
+import swaggerJSDoc from "swagger-jsdoc"
+import { serve, setup } from "swagger-ui-express"
 
 import productManager from "./src/data/fs/ProductManager.js";
 import userManager from "./src/data/fs/UserManager.js";
@@ -14,32 +21,46 @@ import indexRouter from "./src/Router/index.router.js";
 import errorHandler from "./src/middlewares/errorHandler.js";
 import pathHandler from "./src/middlewares/pathHandler.js";
 import __dirname from "./utils.js";
-import socketCb from "./src/Router/index.socket.js";
-import dbConnect from "./src/utils/dbConnect.js";
+import winston from "./src/middlewares/winston.mid.js";
+import configs from "./src/utils/swagger.util.js"
+
+// import socketCb from "./src/Router/index.socket.js";
+// import dbConnect from "./src/utils/dbConnect.js";
 
 // console.log(process.env);
 
 const server = express();
-const port = process.env.PORT || 9000;
-const ready = async () => {
-   console.log("server ready on port" + port);
-   await dbConnect();
-};
-const nodeServer = createServer(server);
+const port = enviroment.PORT || argsUtil.p;
+const ready = async () => {console.log("server ready on port" + port);};
+const numOfCpus = cpus().length 
+if(cluster.isPrimary) {
+   for (let i = 1 ; i<= numOfCpus; i++) {
+      cluster.fork()
+   }
+   console.log("proceso primario");
+} else {
+   console.log("proceso worker" + process.pid)
+   server.listen(port, ready);
+   }
+   
+   // const nodeServer = createServer(server);
 //aca arriba cree un servidor de node con el metodo nativo createServer, con las configuraciones del servidor de express
-nodeServer.listen(port, ready);
+
 
 //creo un servidor de TCP, construyendo una instancia del servidor de socket, pasando como base el servidor de node (TCP esta basado en HTTP)
-const socketServer = new Server(nodeServer);
-socketServer.on("connection", socketCb);
-export { socketServer };
+// const socketServer = new Server(nodeServer);
+// socketServer.on("connection", socketCb);
+// export { socketServer };
 
 //HANDLEBARS
-server.engine("handlebars", engine());
-server.set("view engine", "handlebars");
-server.set("views", __dirname + "/src/views");
+// server.engine("handlebars", engine());
+// server.set("view engine", "handlebars");
+// server.set("views", __dirname + "/src/views");
+
+const specs = swaggerJSDoc(configs);
 
 //MIDDLEWARES
+server.use(cookieParser(enviroment.SECRET));
 server.use(
    session({
       store: new MongoStore({ mongoUrl: process.env.MONGO_URI, ttl: 60 * 60 }),
@@ -49,12 +70,17 @@ server.use(
       cookie: { maxAge: 60 * 60 * 1000 },
    })
 );
-server.use(cookieParser(process.env.SECRET));
 server.use(express.urlencoded({ extended: true }));
 server.use(express.json());
 server.use(express.static(__dirname + "/public"));
-server.use(morgan("dev"));
-//OBLIGO a mi servidor que use la funcion de leer parametros/consultas (req.params/req.querys)
+server.use(winston);
+server.use(cors({origin: true, credentials: true}))
+server.use("/api/docs", serve, setup(specs));
+server.use(
+   compression({
+     brotli: { enabled: true, zlib: {} },
+   })
+ );
 
 // RUTAS
 
@@ -71,7 +97,7 @@ server.get("/", async (requirements, response) => {
          success: false,
       });
    }
-});
+});   
 
 //get con dos parametros
 
@@ -122,3 +148,4 @@ server.get("/api/users/:uid", async (req, res) => {
 server.use("/", indexRouter);
 server.use(errorHandler);
 server.use(pathHandler);
+

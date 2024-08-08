@@ -4,7 +4,7 @@ const template = (data) => `<a href="/pages/details.html?id=${data._id}" class="
   <h5 class="card-title">${data.title}</h5>
   <p class="card-text">Precio: ${data.price}</p>
   <p class="card-text">Disponibles: ${data.stock}</p>
-  <button type="button" class="btn btn-primary">Add to cart</button>
+  <button type="button" class="btn btn-primary">Agregar al Carrito</button>
 </div>
 </a>`;
 

@@ -2,8 +2,8 @@ document.querySelector("#register").addEventListener("click", async () => {
     const data = {
       email: document.querySelector("#email").value,
       password: document.querySelector("#password").value,
-      photo: document.querySelector("#photo").value,
-      age: document.querySelector("#age").value,
+      photo: document.querySelector("#photo").value || "https://cdn.icon-icons.com/icons2/1378/PNG/512/avatardefault_92824.png",
+      age: document.querySelector("#age").value || "18",
     };
     const opts = {
       method: "POST",
@@ -13,7 +13,7 @@ document.querySelector("#register").addEventListener("click", async () => {
     let response = await fetch("/api/sessions/register", opts);
     response = await response.json();
     if (response.statusCode === 201) {
-        return location.replace("/pages/login.html");
+        return location.replace("/pages/verified.html");
     }
     return Swal.fire({
       title: response.message,
