@@ -1,0 +1,240 @@
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        email:
+          type: string
+          description: Email del usuario que se quiere registrar
+        photo:
+          type: string
+          description: url de la foto que el usuario va a usar de perfil 
+        password:
+          type: string
+          description: contraseña que usara el usuario que se registre 
+        age:
+          type: number
+          description: edad del usuario que se registra 
+        role:
+          type: number
+          description: rol del usuario
+        verify:
+          type: boolean
+          description: estado de verificacion del usuario
+        verifyCode:
+          type: boolean
+          description: codigo enviado al usuario para verificar
+      example:
+        email: valentin@gmail.com
+        photo: www.photo.com/valen
+        password: hola1234
+        age: 18
+        role: 0
+        verify: true
+        verifyCode: 1234567890
+  responses:  
+    Response200one:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int64
+          description: Codigo de estado correspondiente a el exito devolviendo datos
+        response:
+          type: object
+          description: Objeto con los datos del recurso solicitado
+      example:
+        statusCode: 200
+        response: 
+          email: valentin@gmail.com
+          photo: www.photo.com/valen
+          password: hola1234
+          age: 18
+          role: 0
+          verify: true
+          verifyCode: 1234567890
+    Response200all:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int64
+          description: Codigo de estado correspondiente a el exito devolviendo datos
+        response:
+          type: array
+          description: Array de objetos con los datos del recurso solicitado
+      example:
+        statusCode: 200
+        response:
+          - email: valentin@gmail.com
+            photo: www.photo.com/valen
+            password: hola1234
+            age: 18
+            role: 0
+            verify: true
+            verifyCode: 1234567890
+          - email: marian@gmail.com
+            photo: www.photo.com/marian
+            password: hola1234
+            age: 18
+            role: 0
+            verify: true
+            verifyCode: 1234567890
+          - email: kiki@gmail.com
+            photo: www.photo.com/kiki
+            password: hola1234
+            age: 18
+            role: 0
+            verify: true
+            verifyCode: 1234567890
+    Response201:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int64
+          description: Codigo de estado correspondiente al exito creando datos
+        response:
+          type: object
+          description: Objeto con los datos del recurso solicitado
+      example:
+        statusCode: 201
+        response: User registered!
+    Message200:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int64
+          description: Codigo de estado correspondiente al exito 
+        message:
+          type: string
+          description: Texto descriptivo con el exito en la operacion
+      example:
+        statusCode: 200
+        message: USER UPDATED
+    Paginate:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int64
+          description: Codigo de estado correspondiente al exito devolviendo datos paginados
+        response:
+          type: array
+          description: Array de objetos con los datos del recurso solicitado paginados y ordenados
+        info:
+          type: object
+          description: Datos de la paginacion
+      example:
+        statusCode: 200 
+        response:
+          - email: valentin@gmail.com
+            photo: www.photo.com/valen
+            password: hola1234
+            age: 18
+            role: 0
+            verify: true
+            verifyCode: 1234567890
+          - email: marian@gmail.com
+            photo: www.photo.com/marian
+            password: hola1234
+            age: 18
+            role: 0
+            verify: true
+            verifyCode: 1234567890
+          - email: kiki@gmail.com
+            photo: www.photo.com/kiki
+            password: hola1234
+            age: 18
+            role: 0
+            verify: true
+            verifyCode: 1234567890
+        info: 
+          next: null
+          prev: null 
+    Error400:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int64
+          description: Codigo de estado correspondiente al fracaso por problemas de cliente 
+        message:
+          type: string
+          description: Texto descriptivo con el mensaje de error por parte del cliente
+      example:
+        statusCode: 400
+        message: Incomplete data
+    Error401:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int64
+          description: Codigo de estado correspondiente al fracaso por autenticacion
+        message:
+          type: string
+          description: Texto descriptivo con el mensaje de error de autenticacion
+      example:
+        statusCode: 401
+        message: Bad auth from policies!
+    Error403:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int64
+          description: Codigo de estado correspondiente al fracaso de autorizacion
+        message:
+          type: string
+          description: Texto descriptivo con el mensaje de error de autorizacion
+      example:
+        statusCode: 403
+        message: Forbidden from policies!
+    Error404:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int64
+          description: Codigo de estado correspondiente al fracaso por datos no encontrados
+        message:
+          type: string
+          description: Texto descriptivo con el mensaje de error por datos no encontrados
+      example:
+        statusCode: 404
+        message: not found docs
+    Error500:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int64
+          description: Codigo de estado correspondiente al fracaso por error fatal en el servidor
+        message:
+          type: string
+          description: Texto descriptivo con el mensaje de error fatal por parte del servidor
+      example:
+        statusCode: 500
+        message: CODER API ERROR
+  paths: 
+    /api/sessions/register:
+      post:
+        summary: Ruta para el registro de un nuevo usuario en el servidor
+        tags:
+          - User
+        requestBody:
+          required: true
+          description: Datos para poder registrar un usuario
+          content:
+            application/json:
+              schema: 
+                $ref: "#/components/schemas/User"
+        responses:
+          201:
+            description: Exito en el registro de un usuario
+            content:
+              application/json:
+                schema:
+                  $ref: "#/components/responses/Message200"        

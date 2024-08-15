@@ -1,0 +1,22 @@
+[
+  {
+    "_id": "eaba887fba23ee73f5178ff7",
+    "email": "valentin21@gmail.com",
+    "password": "$2b$10$QpyhJ.nrAupvKnESZwQz9.CwMPSV8fiP5hb.jKoMkIrKv2fRkjcXu",
+    "role": 0,
+    "age": 12,
+    "photo": "https://cdn.icon-icons.com/icons2/1378/PNG/512/avatardefault_92824.png",
+    "createdAt": "2024-06-30T22:18:45.892Z",
+    "updatedAt": "2024-06-30T22:18:45.892Z"
+  },
+  {
+    "_id": "cfaa6d9b671c9c9c2b456444",
+    "email": "valentin21@gmail.com",
+    "password": "$2b$10$SZxNZqeJTRf8QXITetk44eKTs/vjLRk3aDzVGVaCN6HOIXmCAzy6C",
+    "role": 0,
+    "age": 12,
+    "photo": "https://cdn.icon-icons.com/icons2/1378/PNG/512/avatardefault_92824.png",
+    "createdAt": "2024-06-30T22:25:37.853Z",
+    "updatedAt": "2024-06-30T22:25:37.853Z"
+  }
+]

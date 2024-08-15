@@ -1,0 +1,12 @@
+<div class="d-flex flex-column w-50">
+   {{#if user.id}}
+      <h3>USER {{user.id}}</h3>
+      <div>
+         <img style="height: 10rem" src="{{user.photo}}" class="object-fit-scale" alt=""/>
+         <p>User: {{user.email}}</p>
+         <p>Password: {{user.password}}</p>
+      </div>
+   {{else}}
+      <h3>USER NOT FOUND</h3>
+   {{/if}}
+</div>

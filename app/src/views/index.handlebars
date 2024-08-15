@@ -1,0 +1,13 @@
+<h1 class="bg-primary-subtle p-2 text-center text-primary">CODER HANDLEBARS</h1>
+<div class="d-flex flex-wrap m-2 justify-content-center">
+{{#each products}}
+    <div class="card d-flex w-25 m-2 p-2" style="width: 18rem;">
+        <img style="height: 15rem"src="{{this.photo}}" class="object-fit-scale" alt="...">
+        <div class="card-body">
+            <a href="/products/{{this.id}}" class="">{{this.title}}</a>
+            <p class="">{{this.price}}</p>
+            <p>{{this.category}}</p>
+        </div>
+    </div>
+{{/each}}
+</div>
